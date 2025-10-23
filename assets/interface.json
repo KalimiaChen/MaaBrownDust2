@@ -1,6 +1,6 @@
 {
-  "version": "0.1",
-  "message": "Welcome to MaaFramework!",
+  "version": "0.1.1",
+  "message": "Welcome to MaaFramework 4 BrownDust2!",
   "controller": [
     {
       "name": "模拟器",
