@@ -1,0 +1,479 @@
+{
+    "镜中之战_检测主页": {
+        "recognition": "OCR",
+        "roi": [
+            61,
+            622,
+            75,
+            75
+        ],
+        "expected": [
+            "抽抽乐",
+            "抽抽樂"
+        ],
+        "action": "Click",
+        "target": [
+            1143,
+            655,
+            1,
+            1
+        ],
+        "next": "镜中之战_检测卡带界面"
+    },
+    "镜中之战_检测卡带界面": {
+        "recognition": "OCR",
+        "roi": [
+            79,
+            7,
+            247,
+            50
+        ],
+        "expected": [
+            "游戏卡带收藏集",
+            "遊戲卡帶收藏集",
+            "遊戲卡带收藏集"
+        ],
+        "action": "DoNothing",
+        "next": "镜中之战_进入游戏卡带"
+    },
+    "镜中之战_进入游戏卡带": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "卡带图片_镜中之战.png",
+            "卡带图片_镜中之战2.png"
+        ],
+        "action": "Click",
+        "next": "镜中之战_检测界面",
+        "interrupt": [
+            "镜中之战_进入游戏卡带",
+            "镜中之战_检测到升级",
+            "镜中之战_赛季结算OCR",
+            "镜中之战_赛季结算图片"
+        ]
+    },
+    "镜中之战_检测到升级": {
+        "recognition": "OCR",
+        "roi": [
+            562,
+            645,
+            150,
+            50
+        ],
+        "expected": [
+            "确认",
+            "確認"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": [
+            "镜中之战_检测界面"
+        ]
+    },
+    "镜中之战_赛季结算OCR": {
+        "recognition": "OCR",
+        "expected": [
+            "賽季獎勵",
+            "赛季奖励"
+        ],
+        "roi": [
+            766,
+            146,
+            190,
+            55
+        ],
+        "action": "Click",
+        "target": [
+            586,
+            229,
+            1,
+            1
+        ],
+        "next": "镜中之战_检测界面",
+        "interrupt": "镜中之战_赛季结算图片"
+    },
+    "镜中之战_赛季结算图片": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            766,
+            146,
+            190,
+            55
+        ],
+        "template": "镜中之战_赛季奖励.png",
+        "action": "Click",
+        "target": [
+            586,
+            229,
+            1,
+            1
+        ],
+        "next": "镜中之战_检测界面",
+        "interrupt": "镜中之战_赛季结算OCR"
+    },
+    "镜中之战_检测界面": {
+        "recognition": "TemplateMatch",
+        "template": "镜中之战_战斗图标.png",
+        "green_mask": true,
+        "threshold": 0.40,
+        "action": "DoNothing",
+        "post_delay": 1000,
+        "next": [
+            "镜中之战_检测每日派遣"
+        ],
+        "interrupt": [
+            "镜中之战_移动至决斗图标"
+        ]
+    },
+    "镜中之战_检测每日派遣": {
+        "recognition": "TemplateMatch",
+        "template": "每日派遣图标.png",
+        "green_mask": true,
+        "roi": [
+            873,
+            525,
+            122,
+            126
+        ],
+        "action": "Click",
+        "post_wait_freezes": 7000,
+        "next": "镜中之战_移动至决斗图标"
+    },
+    "镜中之战_移动至决斗图标": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": "镜中之战_检测界面",
+        "target_offset": [
+            0,
+            98,
+            1,
+            1
+        ],
+        "next": "镜中之战_检测战斗界面",
+        "interrupt": "镜中之战_检测界面"
+    },
+    "镜中之战_检测战斗界面": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            981,
+            624,
+            71,
+            66
+        ],
+        "template": "镜中之战_自动战斗图标.png",
+        "action": "Click",
+        "next": "镜中之战_自动战斗设置",
+        "interrupt": "镜中之战_检测界面"
+    },
+    "镜中之战_自动战斗设置": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            615,
+            129,
+            48,
+            37
+        ],
+        "template": "镜中之战_自动战斗设置图标.png",
+        "action": "DoNothing",
+        "next": "镜中之战_自动战斗_检测鸡尾酒消耗10倍",
+        "interrupt": [
+            "镜中之战_自动战斗_10倍消耗选择"
+        ]
+    },
+    "镜中之战_自动战斗_检测鸡尾酒消耗10倍": {
+        "timeout": 10000,
+        "recognition": "OCR",
+        "roi": [
+            826,
+            217,
+            53,
+            30
+        ],
+        "expected": "10倍",
+        "action": "DoNothing",
+        "next": "镜中之战_自动战斗_检测使用免费鸡尾酒",
+        "interrupt": [
+            "镜中之战_自动战斗_选中仅使用免费鸡尾酒"
+        ],
+        "on_error": [
+            "镜中之战_自动战斗_取消自动战斗选择"
+        ]
+    },
+    "镜中之战_自动战斗_10倍消耗选择": {
+        "recognition": "OCR",
+        "roi": [
+            826,
+            217,
+            53,
+            30
+        ],
+        "expected": "倍",
+        "action": "Click",
+        "next": "镜中之战_自动战斗_max消耗选择"
+    },
+    "镜中之战_自动战斗_max消耗选择": {
+        "recognition": "OCR",
+        "roi": [
+            763,
+            345,
+            62,
+            24
+        ],
+        "expected": "MAX",
+        "action": "Click",
+        "next": "镜中之战_自动战斗_max消耗选择确定"
+    },
+    "镜中之战_自动战斗_max消耗选择确定": {
+        "recognition": "OCR",
+        "roi": [
+            665,
+            488,
+            60,
+            25
+        ],
+        "expected": [
+            "确认",
+            "確認"
+        ],
+        "action": "Click",
+        "next": "镜中之战_自动战斗_检测鸡尾酒消耗10倍",
+        "interrupt": [
+            "镜中之战_自动战斗_选中鸡尾酒消耗10倍"
+        ]
+    },
+    "镜中之战_自动战斗_检测使用免费鸡尾酒": {
+        "timeout": 10000,
+        "recognition": "TemplateMatch",
+        "roi": [
+            846,
+            266,
+            44,
+            33
+        ],
+        "template": "镜中之战_选中状态.png",
+        "threshold": [
+            0.95
+        ],
+        "action": "DoNothing",
+        "next": "镜中之战_自动战斗_检测开启战斗自动跳过",
+        "interrupt": [
+            "镜中之战_自动战斗_选中战斗自动跳过"
+        ],
+        "on_error": [
+            "镜中之战_自动战斗_取消自动战斗选择"
+        ]
+    },
+    "镜中之战_自动战斗_选中仅使用免费鸡尾酒": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            867,
+            279,
+            1,
+            1
+        ],
+        "next": [
+            "镜中之战_自动战斗_检测鸡尾酒消耗10倍"
+        ]
+    },
+    "镜中之战_自动战斗_选中鸡尾酒消耗10倍": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            860,
+            277,
+            1,
+            1
+        ],
+        "next": [
+            "镜中之战_自动战斗_检测使用免费鸡尾酒"
+        ],
+        "interrupt": [
+            "镜中之战_自动战斗_选中仅使用免费鸡尾酒"
+        ]
+    },
+    "镜中之战_自动战斗_检测开启战斗自动跳过": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            847,
+            332,
+            44,
+            33
+        ],
+        "template": "镜中之战_选中状态.png",
+        "threshold": [
+            0.95
+        ],
+        "action": "DoNothing",
+        "next": "选择战斗次数"
+    },
+    "镜中之战_自动战斗_选中战斗自动跳过": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            863,
+            395,
+            1,
+            1
+        ],
+        "next": [
+            "镜中之战_自动战斗_检测使用免费鸡尾酒"
+        ]
+    },
+    "选择战斗次数": {
+        "recognition": "OCR",
+        "roi": [
+            778,
+            409,
+            84,
+            29
+        ],
+        "expected": "MAX",
+        "action": "Click",
+        "next": [
+            "镜中之战_自动战斗_开始战斗"
+        ]
+    },
+    "镜中之战_自动战斗_检测鸡尾酒不足": {
+        "recognition": "OCR",
+        "roi": [
+            674,
+            449,
+            74,
+            32
+        ],
+        "expected": [
+            "补充",
+            "補充"
+        ],
+        "action": "Click",
+        "target": [
+            586,
+            458,
+            1,
+            1
+        ],
+        "next": [
+            "镜中之战_自动战斗_取消自动战斗选择"
+        ]
+    },
+    "镜中之战_自动战斗_取消自动战斗选择": {
+        "recognition": "OCR",
+        "roi": [
+            510,
+            528,
+            74,
+            32
+        ],
+        "expected": [
+            "取消",
+            "取消"
+        ],
+        "action": "Click",
+        "next": "镜中之战_退出战斗界面"
+    },
+    "镜中之战_退出战斗界面": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            55,
+            19,
+            45,
+            192
+        ],
+        "template": "镜中之战_界面返回键.png",
+        "action": "Click",
+        "next": [
+            "返回主页",
+            "返回主页图片"
+        ]
+    },
+    "镜中之战_自动战斗_开始战斗": {
+        "recognition": "OCR",
+        "roi": [
+            623,
+            525,
+            138,
+            30
+        ],
+        "expected": [
+            "开始战斗",
+            "開始戰鬥"
+        ],
+        "action": "Click",
+        "post_delay": 1000,
+        "next": "镜中之战_自动战斗_检测战斗结束",
+        "interrupt": [
+            "镜中之战_自动战斗_检测鸡尾酒不足",
+            "镜中之战_自动战斗_跳过加速"
+        ]
+    },
+    "镜中之战_自动战斗_检测战斗结束": {
+        "recognition": "OCR",
+        "roi": [
+            1110,
+            666,
+            74,
+            32
+        ],
+        "expected": [
+            "离开",
+            "離開"
+        ],
+        "action": "Click",
+        "post_delay": 100,
+        "next": [
+            "镜中之战_自动战斗_点击离开"
+        ],
+        "interrupt": [
+            "返回主页",
+            "返回主页图片"
+        ]
+    },
+    "镜中之战_自动战斗_点击离开": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": "镜中之战_自动战斗_检测战斗结束",
+        "post_wait_freezes": 500,
+        "next": [
+            "返回主页",
+            "返回主页图片"
+        ],
+        "interrupt": [
+            "镜中之战_战斗后检测到升级"
+        ]
+    },
+    "镜中之战_战斗后检测到升级": {
+        "recognition": "OCR",
+        "roi": [
+            562,
+            645,
+            150,
+            45
+        ],
+        "expected": [
+            "确认",
+            "確認"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": [
+            "返回主页",
+            "返回主页图片"
+        ]
+    },
+    "镜中之战_自动战斗_跳过加速": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            123,
+            418,
+            1,
+            1
+        ],
+        "post_delay": 1000,
+        "next": [
+            "镜中之战_自动战斗_开始战斗",
+            "镜中之战_自动战斗_检测战斗结束"
+        ],
+        "interrupt": "镜中之战_自动战斗_跳过加速"
+    }
+}

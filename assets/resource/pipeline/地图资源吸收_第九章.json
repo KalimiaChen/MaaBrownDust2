@@ -1,0 +1,257 @@
+{
+    "地图资源_第九章_点击传送阵": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            922,
+            562,
+            60,
+            60
+        ],
+        "template": "传送阵按键.png",
+        "action": "Click",
+        "next": [
+            "地图资源_第九章_检测地图"
+        ],
+        "interrupt": [
+            "地图资源_第九章_点击传送阵"
+        ]
+    },
+    "地图资源_第九章_检测地图": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "template": "检测地图_移动魔法阵.png",
+        "action": "DoNothing",
+        "next": [
+            "地图资源_第九章_检测地图名_战斗1"
+        ],
+        "interrupt": [
+            "地图资源_第九章_检测地图名_检测左移键",
+            "地图资源_第九章_检测地图名_左移"
+        ]
+    },
+    "地图资源_第九章_检测地图名_战斗1": {
+        "recognition": "OCR",
+        "roi": [
+            516,
+            639,
+            276,
+            33
+        ],
+        "expected": [
+            "加尔顿山前段",
+            "加爾頓山前段"
+        ],
+        "next": [
+            "地图资源_第九章_移动战斗1"
+        ]
+    },
+    "地图资源_第九章_检测地图名_检测左移键": {
+        "doc": "未检测到左移键则右移到战斗1",
+        "recognition": "TemplateMatch",
+        "roi": [
+            230,
+            323,
+            48,
+            48
+        ],
+        "template": "检测地图_左移键.png",
+        "threshold": 0.45,
+        "green_mask": true,
+        "inverse": true,
+        "action": "Click",
+        "target": [
+            1026,
+            346,
+            1,
+            1
+        ],
+        "next": "地图资源_第九章_检测地图"
+    },
+    "地图资源_第九章_检测地图名_左移": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            251,
+            345,
+            1,
+            1
+        ],
+        "next": "地图资源_第九章_检测地图"
+    },
+    "地图资源_第九章_移动战斗1": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            406,
+            137,
+            468,
+            405
+        ],
+        "template": "检测地图_移动魔法阵2.png",
+        "action": "Click",
+        "next": [
+            "地图资源_第九章_战斗1_探索"
+        ]
+    },
+    "地图资源_第九章_战斗1_探索": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            961,
+            451,
+            292,
+            252
+        ],
+        "template": "地图资源_探索1.png",
+        "action": "Click",
+        "post_delay": 3000,
+        "next": "地图资源_第九章_战斗1_吸收3"
+    },
+    "地图资源_第九章_战斗1_吸收3": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            961,
+            451,
+            292,
+            252
+        ],
+        "template": "地图资源_吸收3.png",
+        "action": "Click",
+        "post_delay": 3500,
+        "next": "地图资源_第九章_战斗1_召集3"
+    },
+    "地图资源_第九章_战斗1_召集3": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            961,
+            451,
+            292,
+            252
+        ],
+        "template": "地图资源_召集3.png",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": "地图资源_第九章_点击传送阵_战斗2"
+    },
+    "地图资源_第九章_点击传送阵_战斗2": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            922,
+            562,
+            60,
+            60
+        ],
+        "template": "传送阵按键.png",
+        "action": "Click",
+        "next": [
+            "地图资源_第九章_检测地图名_战斗2"
+        ],
+        "interrupt": [
+            "地图资源_第九章_点击传送阵_战斗2",
+            "地图资源_第九章_右移_战斗2"
+        ]
+    },
+    "地图资源_第九章_右移_战斗2": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1001,
+            321,
+            55,
+            55
+        ],
+        "template": "检测地图_右移键.png",
+        "green_mask": true,
+        "threshold": 0.45,
+        "action": "Click",
+        "next": "地图资源_第九章_检测地图名_战斗2"
+    },
+    "地图资源_第九章_检测地图名_战斗2": {
+        "recognition": "OCR",
+        "roi": [
+            516,
+            639,
+            276,
+            33
+        ],
+        "expected": [
+            "加尔顿山后段",
+            "加爾頓山後段"
+        ],
+        "next": [
+            "地图资源_第九章_移动战斗2"
+        ]
+    },
+    "地图资源_第九章_移动战斗2": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            406,
+            137,
+            468,
+            405
+        ],
+        "template": "检测地图_移动魔法阵2.png",
+        "action": "Click",
+        "next": [
+            "地图资源_第九章_战斗2_吸收4"
+        ]
+    },
+    "地图资源_第九章_战斗2_吸收4": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            961,
+            451,
+            292,
+            252
+        ],
+        "template": "地图资源_吸收4.png",
+        "action": "Click",
+        "post_delay": 3500,
+        "next": "地图资源_第九章_战斗2_召集4"
+    },
+    "地图资源_第九章_战斗2_召集4": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            961,
+            451,
+            292,
+            252
+        ],
+        "template": "地图资源_召集4.png",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": "地图资源_第九章_切换卡带"
+    },
+    "地图资源_第九章_切换卡带": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            539,
+            636,
+            130,
+            66
+        ],
+        "template": [
+            "地图资源_切换卡带键.png",
+            "地图资源_切换卡带键_绿幕.png"
+        ],
+        "green_mask": true,
+        "threshold": 0.45,
+        "action": "Click",
+        "next": "地图资源_切换卡带_第十章"
+    },
+    "地图资源_切换卡带_第十章": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            41,
+            601,
+            1240,
+            90
+        ],
+        "template": "卡带图片_第十章_局内.png",
+        "threshold": 0.9,
+        "action": "Click",
+        "next": "地图资源_第十章_点击传送阵"
+    }
+}

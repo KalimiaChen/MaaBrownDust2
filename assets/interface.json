@@ -1,84 +1,94 @@
 {
-    "controller": [
-        {
-            "name": "安卓端",
-            "type": "Adb"
-        },
-        {
-            "name": "桌面端",
-            "type": "Win32",
-            "win32": {
-                "class_regex": ".*",
-                "window_regex": "Visual Studio"
-            }
-        }
-    ],
-    "resource": [
-        {
-            "name": "官服",
-            "path": [
-                "{PROJECT_DIR}/resource"
-            ]
-        },
-        {
-            "name": "B 服",
-            "path": [
-                "{PROJECT_DIR}/resource",
-                "{PROJECT_DIR}/resource_bilibili"
-            ]
-        }
-    ],
-    "agent": {
-        "child_exec": "python",
-        "child_args": [
-            "{PROJECT_DIR}/agent/main.py"
-        ]
+  "version": "0.1",
+  "message": "Welcome to MaaFramework!",
+  "controller": [
+    {
+      "name": "模拟器",
+      "type": "Adb"
     },
-    "task": [
-        {
-            "name": "普通任务",
-            "entry": "MyTask1"
-        },
-        {
-            "name": "选项任务",
-            "entry": "MyTask2",
-            "option": [
-                "任务选项1"
-            ]
-        },
-        {
-            "name": "参数任务",
-            "entry": "MyTask3",
-            "option": [
-                "任务选项1"
-            ],
-            "pipeline_override": {}
-        },
-        {
-            "name": "带Custom的任务",
-            "entry": "MyTask4"
-        }
-    ],
-    "option": {
-        "任务选项1": {
-            "cases": [
-                {
-                    "name": "文本1",
-                    "pipeline_override": {
-                        "OcrTask": {
-                            "text": "文本1"
-                        }
-                    }
-                },
-                {
-                    "name": "文本2",
-                    "pipeline_override": {
-                        "OcrTask": {
-                            "text": "文本2"
-                        }
-                    }
-                }
-            ]
-        }
+    {
+      "name": "桌面端",
+      "type": "Win32",
+      "win32": {
+        "class_regex": "UnityWndClass",
+        "window_regex": "BrownDust II",
+        "input": 1,
+        "screencap": 2
+      }
     }
+  ],
+  "resource": [
+    {
+      "name": "default",
+      "path": [
+        "{PROJECT_DIR}/resource"
+      ]
+    }
+  ],
+  "task": [
+    {
+      "name": "启动游戏",
+      "entry": "启动BD2"
+    },
+    {
+      "name": "日常签到",
+      "entry": "签到检测"
+    },
+    {
+      "name": "免费抽卡",
+      "entry": "抽抽乐_检测主页"
+    },
+    {
+      "name": "格鲁菲餐厅",
+      "entry": "格鲁菲餐厅_检测主页"
+    },
+    {
+      "name": "公会签到",
+      "entry": "公会签到_检测主页"
+    },
+    {
+      "name": "镜中之战",
+      "entry": "镜中之战_检测主页"
+    },
+    {
+      "name": "快速狩猎",
+      "entry": "快速狩猎_检测主页"
+    },
+    {
+      "name": "地图资源吸收",
+      "entry": "地图资源_检测主页"
+    },
+    {
+      "name": "末日之书",
+      "entry": "末日之书_检测主页"
+    },
+    {
+      "name": "装备日常",
+      "entry": "装备日常_检测主页"
+    },
+    {
+      "name": "活动日常",
+      "entry": "活动日常_检测主页"
+    },
+    {
+      "name": "玩家小屋",
+      "entry": "启动BD2"
+    },
+    {
+      "name": "傲慢之塔",
+      "entry": "启动BD2"
+    },
+    {
+      "name": "肉鸽塔",
+      "entry": "启动BD2"
+    },
+    {
+      "name": "领取奖励",
+      "entry": "领取奖励_检测主页"
+    },
+    {
+      "name": "结束游戏",
+      "entry": "启动BD2"
+    }
+  ]
 }

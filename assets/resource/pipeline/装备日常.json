@@ -1,0 +1,312 @@
+{
+    "装备日常_检测主页": {
+        "recognition": "OCR",
+        "roi": [
+            220,
+            666,
+            50,
+            50
+        ],
+        "expected": [
+            "背包",
+            "背包"
+        ],
+        "action": "Click",
+        "next": "装备日常_检测背包界面"
+    },
+    "装备日常_检测背包界面": {
+        "recognition": "OCR",
+        "roi": [
+            180,
+            17,
+            85,
+            47
+        ],
+        "expected": [
+            "消耗品",
+            "消耗品"
+        ],
+        "action": "Click",
+        "target": [
+            115,
+            167,
+            1,
+            1
+        ],
+        "next": [
+            "装备日常_检测R级装备"
+        ],
+        "timeout": 7000,
+        "on_error": [
+            "装备日常_检测主页",
+            "装备日常_点击戒指"
+        ]
+    },
+    "装备日常_检测R级装备": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            472,
+            87,
+            687,
+            100
+        ],
+        "template": [
+            "装备检测_R级装备.png",
+            "装备检测_R级装备_new.png"
+        ],
+        "threshold": [
+            0.95
+        ],
+        "action": "DoNothing",
+        "next": [
+            "装备日常_一键分解"
+        ]
+    },
+    "装备日常_一键分解": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            1132,
+            666,
+            1,
+            1
+        ],
+        "next": [
+            "装备日常_确认分解"
+        ],
+        "timeout": 5000,
+        "on_error": [
+            "装备日常_一键分解"
+        ]
+    },
+    "装备日常_确认分解": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1167,
+            652,
+            35,
+            35
+        ],
+        "template": [
+            "装备检测_装备分解.png"
+        ],
+        "threshold": [
+            0.95
+        ],
+        "action": "DoNothing",
+        "next": [
+            "装备日常_确认分解_选择"
+        ]
+    },
+    "装备日常_确认分解_选择": {
+        "recognition": "ColorMatch",
+        "roi": [
+            472,
+            87,
+            687,
+            100
+        ],
+        "lower": [
+            109,
+            175,
+            255
+        ],
+        "upper": [
+            109,
+            175,
+            255
+        ],
+        "action": "Click",
+        "next": [
+            "装备日常_确认分解_确认"
+        ]
+    },
+    "装备日常_确认分解_确认": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": "装备日常_确认分解",
+        "next": [
+            "装备日常_确认分解_分解"
+        ]
+    },
+    "装备日常_确认分解_分解": {
+        "recognition": "OCR",
+        "roi": [
+            673,
+            454,
+            100,
+            50
+        ],
+        "expected": [
+            "分解",
+            "分解"
+        ],
+        "action": "Click",
+        "next": [
+            "装备日常_确认分解_结果"
+        ],
+        "interrupt": [
+            "装备日常_确认分解_分解"
+        ]
+    },
+    "装备日常_确认分解_结果": {
+        "recognition": "OCR",
+        "roi": [
+            582,
+            202,
+            120,
+            50
+        ],
+        "expected": [
+            "RESULT"
+        ],
+        "action": "Click",
+        "target": [
+            158,
+            503,
+            1,
+            1
+        ],
+        "next": [
+            "装备日常_点击戒指"
+        ]
+    },
+    "装备日常_点击戒指": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            920,
+            68,
+            1,
+            1
+        ],
+        "post_delay": 500,
+        "next": [
+            "装备日常_查找毒蛇之手"
+        ],
+        "interrupt": [
+            "装备日常_下划"
+        ]
+    },
+    "装备日常_查找毒蛇之手": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            472,
+            91,
+            1155,
+            651
+        ],
+        "template": [
+            "装备检测_毒蛇之手_传说.png"
+        ],
+        "threshold": [
+            0.95
+        ],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": [
+            "装备日常_炼制毒蛇之手"
+        ],
+        "interrupt": [
+            "装备日常_查找毒蛇之手",
+            "装备日常_下划"
+        ]
+    },
+    "装备日常_炼制毒蛇之手": {
+        "recognition": "OCR",
+        "roi": [
+            875,
+            477,
+            100,
+            50
+        ],
+        "expected": [
+            "炼制",
+            "煉製",
+            "煉裂"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": "装备日常_炼制毒蛇之手_炼制"
+    },
+    "装备日常_炼制毒蛇之手_炼制": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            1059,
+            670,
+            1,
+            1
+        ],
+        "post_wait_freezes": 500,
+        "next": [
+            "检测主页"
+        ],
+        "interrupt": [
+            "装备日常_炼制毒蛇之手_退出",
+            "装备日常_退出"
+        ]
+    },
+    "装备日常_炼制毒蛇之手_退出": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            111,
+            34,
+            1,
+            1
+        ],
+        "post_wait_freezes": 500,
+        "next": [
+            "装备日常_退出"
+        ]
+    },
+    "装备日常_退出": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            117,
+            32,
+            1,
+            1
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "检测主页"
+        ],
+        "interrupt": [
+            "返回主页图片",
+            "装备日常_退出"
+        ]
+    },
+    "装备日常_下划": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            938,
+            529,
+            1,
+            1
+        ],
+        "end": [
+            [
+                938,
+                264,
+                1,
+                1
+            ],
+            [
+                940,
+                264,
+                1,
+                1
+            ]
+        ],
+        "next": [
+            "装备日常_查找毒蛇之手"
+        ],
+        "interrupt": [
+            "装备日常_下划"
+        ]
+    }
+}

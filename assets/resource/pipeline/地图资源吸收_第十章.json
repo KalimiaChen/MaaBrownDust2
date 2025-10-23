@@ -1,0 +1,296 @@
+{
+    "地图资源_第十章_点击传送阵": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            922,
+            562,
+            60,
+            60
+        ],
+        "template": "传送阵按键.png",
+        "action": "Click",
+        "post_wait_freezes": 200,
+        "next": [
+            "地图资源_第十章_检测地图"
+        ],
+        "interrupt": [
+            "地图资源_第十章_点击传送阵"
+        ]
+    },
+    "地图资源_第十章_检测地图": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "template": "检测地图_移动魔法阵.png",
+        "action": "DoNothing",
+        "next": [
+            "地图资源_第十章_检测地图名_安全区1"
+        ],
+        "interrupt": [
+            "地图资源_第十章_检测地图名_左移"
+        ]
+    },
+    "地图资源_第十章_检测地图名_左移": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            251,
+            345,
+            1,
+            1
+        ],
+        "next": "地图资源_第十章_检测地图"
+    },
+    "地图资源_第十章_检测地图名_安全区1": {
+        "recognition": "OCR",
+        "roi": [
+            516,
+            639,
+            276,
+            33
+        ],
+        "expected": [
+            "埃兰城市",
+            "埃蘭城市"
+        ],
+        "next": [
+            "地图资源_第十章_移动安全区_传送"
+        ],
+        "interrupt": [
+            "地图资源_第十章_移动安全区_返回"
+        ]
+    },
+    "地图资源_第十章_移动安全区_传送": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            406,
+            137,
+            468,
+            405
+        ],
+        "template": "检测地图_移动魔法阵2.png",
+        "action": "Click",
+        "next": [
+            "地图资源_第十章_安全区_探索"
+        ],
+        "interrupt": [
+            "地图资源_第十章_移动安全区_传送"
+        ]
+    },
+    "地图资源_第十章_移动安全区_返回": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            61,
+            10,
+            200,
+            60
+        ],
+        "template": "界面返回键_绿幕.png",
+        "green_mask": true,
+        "threshold": 0.4,
+        "action": "Click",
+        "next": [
+            "地图资源_第十章_安全区_探索"
+        ],
+        "interrupt": [
+            "地图资源_第十章_移动安全区_返回"
+        ]
+    },
+    "地图资源_第十章_安全区_探索": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            961,
+            451,
+            292,
+            252
+        ],
+        "template": "地图资源_探索1.png",
+        "action": "Click",
+        "post_delay": 3000,
+        "next": "地图资源_第十章_安全区_吸收0",
+        "interrupt": [
+            "地图资源_第十章_移动安全区_传送",
+            "地图资源_第十章_移动安全区_返回",
+            "地图资源_第十章_安全区_探索"
+        ]
+    },
+    "地图资源_第十章_安全区_吸收0": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            961,
+            451,
+            292,
+            252
+        ],
+        "template": "地图资源_吸收0.png",
+        "threshold": 0.75,
+        "action": "Click",
+        "post_delay": 3000,
+        "next": "地图资源_第十章_点击传送阵_战斗1"
+    },
+    "地图资源_第十章_点击传送阵_战斗1": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            922,
+            562,
+            60,
+            60
+        ],
+        "template": "传送阵按键.png",
+        "action": "Click",
+        "post_wait_freezes": 200,
+        "next": [
+            "地图资源_第十章_检测地图名_战斗1"
+        ],
+        "interrupt": [
+            "地图资源_第十章_点击传送阵_战斗1",
+            "地图资源_第十章_右移_战斗1"
+        ]
+    },
+    "地图资源_第十章_检测地图名_战斗1": {
+        "recognition": "OCR",
+        "roi": [
+            516,
+            639,
+            276,
+            33
+        ],
+        "expected": [
+            "官邸地下",
+            "官邸地下"
+        ],
+        "next": [
+            "地图资源_第十章_移动战斗1"
+        ],
+        "on_error": [
+            "地图资源_第十章_点击传送阵_战斗1"
+        ],
+        "timeout": 7000
+    },
+    "地图资源_第十章_右移_战斗1": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1001,
+            321,
+            55,
+            55
+        ],
+        "template": "检测地图_右移键.png",
+        "green_mask": true,
+        "threshold": 0.45,
+        "action": "Click",
+        "next": "地图资源_第十章_检测地图名_战斗1"
+    },
+    "地图资源_第十章_移动战斗1": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            406,
+            137,
+            468,
+            405
+        ],
+        "template": "检测地图_移动魔法阵2.png",
+        "action": "Click",
+        "next": [
+            "地图资源_第十章_战斗1_吸收1"
+        ]
+    },
+    "地图资源_第十章_战斗1_吸收1": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            961,
+            451,
+            292,
+            252
+        ],
+        "template": "地图资源_吸收1.png",
+        "action": "Click",
+        "threshold": 0.85,
+        "post_delay": 3000,
+        "next": "地图资源_第十章_点击传送阵_战斗2"
+    },
+    "地图资源_第十章_点击传送阵_战斗2": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            922,
+            562,
+            60,
+            60
+        ],
+        "template": "传送阵按键.png",
+        "action": "Click",
+        "post_wait_freezes": 200,
+        "next": [
+            "地图资源_第十章_检测地图名_战斗2"
+        ],
+        "interrupt": [
+            "地图资源_第十章_右移_战斗2",
+            "地图资源_第十章_点击传送阵_战斗2"
+        ]
+    },
+    "地图资源_第十章_右移_战斗2": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1001,
+            321,
+            55,
+            55
+        ],
+        "template": "检测地图_右移键.png",
+        "green_mask": true,
+        "threshold": 0.45,
+        "action": "Click",
+        "next": "地图资源_第十章_检测地图名_战斗2"
+    },
+    "地图资源_第十章_检测地图名_战斗2": {
+        "recognition": "OCR",
+        "roi": [
+            516,
+            639,
+            276,
+            33
+        ],
+        "expected": [
+            "官邸大殿",
+            "官邸大殿"
+        ],
+        "next": [
+            "地图资源_第十章_移动战斗2"
+        ]
+    },
+    "地图资源_第十章_移动战斗2": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            406,
+            137,
+            468,
+            405
+        ],
+        "template": "检测地图_移动魔法阵2.png",
+        "action": "Click",
+        "next": [
+            "地图资源_第十章_战斗2_吸收2"
+        ]
+    },
+    "地图资源_第十章_战斗2_吸收2": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            961,
+            451,
+            292,
+            252
+        ],
+        "template": "地图资源_吸收2.png",
+        "threshold": 0.85,
+        "action": "Click",
+        "post_wait_freezes": 3000,
+        "next": [
+            "返回主页",
+            "返回主页图片"
+        ]
+    }
+}

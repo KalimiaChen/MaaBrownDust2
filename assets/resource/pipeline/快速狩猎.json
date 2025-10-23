@@ -1,0 +1,373 @@
+{
+    "快速狩猎_检测主页": {
+        "recognition": "OCR",
+        "roi": [
+            1128,
+            140,
+            83,
+            83
+        ],
+        "expected": [
+            "快速狩猎",
+            "快速狩獵",
+            "快速狩獾"
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": [
+            "快速狩猎_检测界面"
+        ]
+    },
+    "快速狩猎_检测界面": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            86,
+            8,
+            62,
+            55
+        ],
+        "template": "快速狩猎_返回键.png",
+        "action": "DoNothing",
+        "next": "快速狩猎_材料选择",
+        "interrupt": "快速狩猎_检测主页"
+    },
+    "快速狩猎_材料选择": {
+        "recognition": "OCR",
+        "expected": [
+            "9."
+        ],
+        "action": "Click",
+        "next": "快速狩猎_材料确认"
+    },
+    "快速狩猎_材料确认": {
+        "recognition": "OCR",
+        "roi": [
+            1064,
+            645,
+            92,
+            33
+        ],
+        "expected": [
+            "快速狩猎",
+            "快速狩獵"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 200,
+        "next": [
+            "快速狩猎_免费白饭确认"
+        ],
+        "interrupt": "快速狩猎_材料选择"
+    },
+    "快速狩猎_免费白饭确认": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            808,
+            254,
+            50,
+            50
+        ],
+        "template": [
+            "镜中之战_选中状态.png"
+        ],
+        "threshold": [
+            0.95
+        ],
+        "action": "DoNothing",
+        "next": "快速狩猎_材料_狩猎开始",
+        "interrupt": [
+            "选中仅使用免费白饭"
+        ]
+    },
+    "选中仅使用免费白饭": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            827,
+            273,
+            1,
+            1
+        ],
+        "next": "快速狩猎_免费白饭确认"
+    },
+    "快速狩猎_材料_狩猎开始": {
+        "recognition": "OCR",
+        "roi": [
+            651,
+            502,
+            90,
+            30
+        ],
+        "expected": [
+            "狩猎",
+            "狩獵"
+        ],
+        "action": "Click",
+        "next": "快速狩猎_材料_奖励确认",
+        "post_wait_freezes": 500,
+        "interrupt": "快速狩猎_哥布林金币"
+    },
+    "快速狩猎_材料_奖励确认": {
+        "recognition": "OCR",
+        "roi": [
+            567,
+            200,
+            149,
+            48
+        ],
+        "expected": "REWARD",
+        "pre_delay": 200,
+        "action": "Click",
+        "target": [
+            637,
+            523,
+            1,
+            1
+        ],
+        "post_wait_freezes": 500,
+        "next": "快速狩猎_哥布林金币"
+    },
+    "快速狩猎_哥布林金币": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            70,
+            130,
+            80,
+            60
+        ],
+        "template": [
+            "快速狩猎_哥布林金币图标.png",
+            "快速狩猎_哥布林金币图标2.png"
+        ],
+        "threshold": [
+            0.45
+        ],
+        "action": "Click",
+        "pre_delay": 500,
+        "post_wait_freezes": 200,
+        "next": "快速狩猎_哥布林金币_材料确认"
+    },
+    "快速狩猎_哥布林金币_材料确认": {
+        "recognition": "OCR",
+        "roi": [
+            1064,
+            645,
+            92,
+            33
+        ],
+        "expected": [
+            "快速狩猎",
+            "快速狩獵"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 200,
+        "next": [
+            "快速狩猎_哥布林金币_材料拉满"
+        ],
+        "interrupt": "快速狩猎_哥布林金币"
+    },
+    "快速狩猎_哥布林金币_材料拉满": {
+        "recognition": "OCR",
+        "roi": [
+            750,
+            373,
+            90,
+            30
+        ],
+        "expected": [
+            "MAX"
+        ],
+        "action": "Click",
+        "next": "快速狩猎_哥布林金币_狩猎开始"
+    },
+    "快速狩猎_哥布林金币_狩猎开始": {
+        "recognition": "OCR",
+        "roi": [
+            651,
+            502,
+            90,
+            30
+        ],
+        "expected": [
+            "狩猎",
+            "狩獵"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": "快速狩猎_哥布林金币_奖励确认",
+        "interrupt": "快速狩猎_圣石洞穴"
+    },
+    "快速狩猎_哥布林金币_奖励确认": {
+        "recognition": "OCR",
+        "roi": [
+            567,
+            200,
+            149,
+            48
+        ],
+        "expected": "REWARD",
+        "pre_delay": 200,
+        "action": "Click",
+        "target": [
+            637,
+            523,
+            1,
+            1
+        ],
+        "post_wait_freezes": 500,
+        "next": "快速狩猎_圣石洞穴"
+    },
+    "快速狩猎_史莱姆经验": {},
+    "快速狩猎_圣石洞穴": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            90,
+            270,
+            80,
+            60
+        ],
+        "template": [
+            "快速狩猎_圣石洞穴图标.png",
+            "快速狩猎_圣石洞穴图标2.png"
+        ],
+        "threshold": [
+            0.40
+        ],
+        "action": "Click",
+        "pre_delay": 500,
+        "post_wait_freezes": 200,
+        "next": "快速狩猎_圣石洞穴_材料选择"
+    },
+    "快速狩猎_圣石洞穴_材料选择": {
+        "recognition": "OCR",
+        "roi": [
+            145,
+            80,
+            85,
+            223
+        ],
+        "expected": [
+            "风的洞穴",
+            "風的洞穴"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 200,
+        "next": "快速狩猎_圣石洞穴_材料确认"
+    },
+    "快速狩猎_圣石洞穴_材料确认": {
+        "recognition": "OCR",
+        "roi": [
+            1064,
+            645,
+            92,
+            33
+        ],
+        "expected": [
+            "快速狩猎",
+            "快速狩獵"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 200,
+        "next": [
+            "快速狩猎_免费火炬确认"
+        ],
+        "interrupt": "快速狩猎_圣石洞穴"
+    },
+    "快速狩猎_免费火炬确认": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            808,
+            254,
+            50,
+            50
+        ],
+        "template": [
+            "镜中之战_选中状态.png"
+        ],
+        "threshold": [
+            0.95
+        ],
+        "action": "DoNothing",
+        "next": "快速狩猎_圣石_拉满",
+        "interrupt": [
+            "选中仅使用免费火炬"
+        ]
+    },
+    "选中仅使用免费火炬": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            827,
+            273,
+            1,
+            1
+        ],
+        "next": "快速狩猎_免费火炬确认"
+    },
+    "快速狩猎_圣石_拉满": {
+        "recognition": "OCR",
+        "roi": [
+            750,
+            373,
+            90,
+            30
+        ],
+        "expected": [
+            "MAX"
+        ],
+        "action": "Click",
+        "next": "快速狩猎_狩猎开始_圣石"
+    },
+    "快速狩猎_狩猎开始_圣石": {
+        "recognition": "OCR",
+        "roi": [
+            651,
+            502,
+            90,
+            30
+        ],
+        "expected": [
+            "狩猎",
+            "狩獵"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": "快速狩猎_圣石洞穴_奖励确认",
+        "interrupt": [
+            "快速狩猎_狩猎开始_圣石"
+        ]
+    },
+    "快速狩猎_圣石洞穴_奖励确认": {
+        "recognition": "OCR",
+        "roi": [
+            567,
+            200,
+            149,
+            48
+        ],
+        "expected": "REWARD",
+        "pre_delay": 200,
+        "action": "Click",
+        "target": [
+            637,
+            523,
+            1,
+            1
+        ],
+        "post_wait_freezes": 500,
+        "next": "快速狩猎_返回主界面"
+    },
+    "快速狩猎_返回主界面": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            86,
+            8,
+            62,
+            55
+        ],
+        "template": "快速狩猎_返回键.png",
+        "action": "Click",
+        "pre_delay": 500,
+        "next": "检测主页"
+    }
+}

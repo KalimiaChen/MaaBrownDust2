@@ -1,0 +1,177 @@
+{
+    "地图资源_第八章_点击传送阵": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            922,
+            562,
+            60,
+            60
+        ],
+        "template": "传送阵按键.png",
+        "action": "Click",
+        "next": [
+            "地图资源_第八章_检测地图"
+        ],
+        "interrupt": [
+            "地图资源_第八章_点击传送阵"
+        ]
+    },
+    "地图资源_第八章_检测地图": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "template": "检测地图_移动魔法阵.png",
+        "action": "DoNothing",
+        "next": [
+            "地图资源_第八章_检测地图名_战斗1"
+        ],
+        "interrupt": [
+            "地图资源_第八章_检测地图名_检测左移键",
+            "地图资源_第八章_检测地图名_左移"
+        ]
+    },
+    "地图资源_第八章_检测地图名_战斗1": {
+        "recognition": "OCR",
+        "roi": [
+            516,
+            639,
+            276,
+            33
+        ],
+        "expected": [
+            "贫民区",
+            "貧民區"
+        ],
+        "next": [
+            "地图资源_第八章_移动战斗1"
+        ]
+    },
+    "地图资源_第八章_检测地图名_检测左移键": {
+        "doc": "未检测到左移键则右移到战斗1",
+        "recognition": "TemplateMatch",
+        "roi": [
+            230,
+            323,
+            48,
+            48
+        ],
+        "template": "检测地图_左移键.png",
+        "threshold": 0.45,
+        "green_mask": true,
+        "inverse": true,
+        "action": "Click",
+        "target": [
+            1026,
+            346,
+            1,
+            1
+        ],
+        "next": "地图资源_第八章_检测地图"
+    },
+    "地图资源_第八章_检测地图名_左移": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            251,
+            345,
+            1,
+            1
+        ],
+        "next": "地图资源_第八章_检测地图"
+    },
+    "地图资源_第八章_移动战斗1": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            406,
+            137,
+            468,
+            405
+        ],
+        "template": "检测地图_移动魔法阵2.png",
+        "action": "Click",
+        "next": [
+            "地图资源_第八章_战斗1_探索"
+        ]
+    },
+    "地图资源_第八章_战斗1_探索": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            961,
+            451,
+            292,
+            252
+        ],
+        "template": "地图资源_探索1.png",
+        "action": "Click",
+        "post_delay": 3000,
+        "next": "地图资源_第八章_战斗1_吸收2"
+    },
+    "地图资源_第八章_战斗1_吸收2": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            961,
+            451,
+            292,
+            252
+        ],
+        "template": "地图资源_吸收2.png",
+        "action": "Click",
+        "post_delay": 3500,
+        "next": "地图资源_第八章_战斗1_召集2"
+    },
+    "地图资源_第八章_战斗1_召集2": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            961,
+            451,
+            292,
+            252
+        ],
+        "template": "地图资源_召集2.png",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": "地图资源_第八章_切换卡带"
+    },
+    "地图资源_第八章_切换卡带": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            539,
+            636,
+            130,
+            66
+        ],
+        "template": [
+            "地图资源_切换卡带键.png",
+            "地图资源_切换卡带键_绿幕.png"
+        ],
+        "green_mask": true,
+        "threshold": 0.45,
+        "action": "Click",
+        "next": "地图资源_切换卡带_第九章",
+        "timeout": 5000,
+        "on_error": [
+            "地图资源_第八章_切换卡带"
+        ]
+    },
+    "地图资源_切换卡带_第九章": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            41,
+            601,
+            1240,
+            90
+        ],
+        "template": "卡带图片_第九章_局内.png",
+        "threshold": 0.9,
+        "action": "Click",
+        "next": "地图资源_第九章_点击传送阵",
+        "timeout": 10000,
+        "on_error": [
+            "地图资源_第八章_切换卡带"
+        ]
+    }
+}

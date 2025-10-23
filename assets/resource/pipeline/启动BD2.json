@@ -1,0 +1,138 @@
+{
+    "启动BD2": {
+        "timeout": 60000,
+        "recognition": "DirectHit",
+        "next": "检测主页",
+        "interrupt": [
+            "触摸启动",
+            "启动游戏中",
+            "触摸启动英文",
+            "返回主页",
+            "返回主页图片",
+            "卡带返回主页",
+            "pvp段位变化",
+            "随机点击"
+        ]
+    },
+    "触摸启动": {
+        "recognition": "TemplateMatch",
+        "template": "touch_to_start.png",
+        "action": "Click",
+        "next": "启动BD2"
+    },
+    "触摸启动英文": {
+        "recognition": "OCR",
+        "expected": "TOUCH TO START",
+        "action": "Click",
+        "next": "启动BD2"
+    },
+    "启动游戏中": {
+        "recognition": "OCR",
+        "expected": [
+            "启动游戏中",
+            "啟動遊戲中"
+        ],
+        "action": "DoNothing",
+        "next": "启动BD2"
+    },
+    "检测主页": {
+        "recognition": "OCR",
+        "roi": [
+            61,
+            615,
+            136,
+            691
+        ],
+        "expected": [
+            "抽抽乐",
+            "抽抽樂"
+        ],
+        "action": "DoNothing",
+        "next": "任务完成",
+        "interrupt": [
+            "返回主页",
+            "卡带返回主页",
+            "返回主页图片"
+        ]
+    },
+    "返回主页": {
+        "recognition": "OCR",
+        "roi": [
+            1143,
+            7,
+            1247,
+            68
+        ],
+        "expected": "H",
+        "action": "Click",
+        "next": "检测主页",
+        "interrupt": [
+            "返回主页",
+            "返回主页图片"
+        ]
+    },
+    "返回主页图片": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1143,
+            7,
+            1247,
+            68
+        ],
+        "template": "home键.png",
+        "action": "Click",
+        "next": "检测主页",
+        "interrupt": [
+            "返回主页图片",
+            "返回主页"
+        ]
+    },
+    "卡带返回主页": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            50,
+            0,
+            165,
+            61
+        ],
+        "template": "卡带界面返回键.png",
+        "action": "Click",
+        "next": "检测主页"
+    },
+    "pvp段位变化": {
+        "recognition": "OCR",
+        "roi": [
+            570,
+            650,
+            130,
+            30
+        ],
+        "expected": [
+            "确认",
+            "確認"
+        ],
+        "action": "Click",
+        "next": "启动BD2"
+    },
+    "随机点击": {
+        "doc": "修改了target,之前在中下间会在末日之书被乱点",
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            1197,
+            37,
+            1,
+            1
+        ],
+        "pre_delay": 3000,
+        "post_wait_freezes": 5000,
+        "next": [
+            "启动BD2"
+        ]
+    },
+    "任务完成": {
+        "doc": "检测到主页",
+        "recognition": "DirectHit",
+        "action": "StopTask"
+    }
+}

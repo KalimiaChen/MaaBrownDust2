@@ -1,0 +1,508 @@
+{
+    "领取奖励_检测主页": {
+        "recognition": "OCR",
+        "roi": [
+            428,
+            637,
+            100,
+            100
+        ],
+        "expected": [
+            "任务",
+            "任務"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": "领取奖励_检测页面_每日任务"
+    },
+    "领取奖励_检测页面_每日任务": {
+        "recognition": "OCR",
+        "roi": [
+            182,
+            20,
+            100,
+            50
+        ],
+        "expected": [
+            "每日任务",
+            "每日任務"
+        ],
+        "action": "Click",
+        "target": [
+            1119,
+            668,
+            1,
+            1
+        ],
+        "post_wait_freezes": 500,
+        "next": [
+            "领取奖励_每日任务_结果"
+        ]
+    },
+    "领取奖励_每日任务_结果": {
+        "recognition": "OCR",
+        "roi": [
+            540,
+            189,
+            200,
+            100
+        ],
+        "expected": [
+            "REWARD"
+        ],
+        "pre_wait_freezes": 500,
+        "action": "Click",
+        "target": [
+            182,
+            20,
+            100,
+            50
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "领取奖励_每周任务"
+        ]
+    },
+    "领取奖励_每周任务": {
+        "recognition": "OCR",
+        "roi": [
+            156,
+            135,
+            100,
+            50
+        ],
+        "expected": [
+            "每周任务",
+            "每週任務"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": [
+            "领取奖励_检测页面_每周任务"
+        ],
+        "interrupt": [
+            "领取奖励_每周任务"
+        ]
+    },
+    "领取奖励_检测页面_每周任务": {
+        "recognition": "OCR",
+        "roi": [
+            182,
+            20,
+            100,
+            50
+        ],
+        "expected": [
+            "每周任务",
+            "每週任務"
+        ],
+        "action": "Click",
+        "target": [
+            1119,
+            668,
+            1,
+            1
+        ],
+        "post_wait_freezes": 500,
+        "next": [
+            "领取奖励_每周任务_结果"
+        ],
+        "timeout": 5000,
+        "on_error": [
+            "领取奖励_退出任务"
+        ]
+    },
+    "领取奖励_每周任务_结果": {
+        "recognition": "OCR",
+        "roi": [
+            540,
+            189,
+            200,
+            100
+        ],
+        "expected": [
+            "REWARD"
+        ],
+        "pre_wait_freezes": 500,
+        "action": "Click",
+        "target": [
+            182,
+            20,
+            100,
+            50
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "领取奖励_退出任务"
+        ]
+    },
+    "领取奖励_退出任务": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            101,
+            15,
+            50,
+            50
+        ],
+        "template": [
+            "任务_返回键.png"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next": [
+            "领取奖励_检测主页_通行证"
+        ],
+        "on_error": [
+            "领取奖励_退出任务"
+        ]
+    },
+    "领取奖励_检测主页_通行证": {
+        "recognition": "OCR",
+        "roi": [
+            1060,
+            138,
+            100,
+            100
+        ],
+        "expected": [
+            "通行证",
+            "通行證"
+        ],
+        "action": "Click",
+        "next": [
+            "领取奖励_检测页面_通行证"
+        ],
+        "on_error": [
+            "领取奖励_检测主页_通行证"
+        ]
+    },
+    "领取奖励_检测页面_通行证": {
+        "recognition": "OCR",
+        "roi": [
+            926,
+            498,
+            100,
+            50
+        ],
+        "expected": [
+            "全部获得",
+            "全部獲得"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": [
+            "领取奖励_通行证1_结果"
+        ],
+        "interrupt": [
+            "领取奖励_检测页面_通行证"
+        ],
+        "on_error": [
+            "领取奖励_通行证2_检测"
+        ]
+    },
+    "领取奖励_通行证1_结果": {
+        "recognition": "OCR",
+        "roi": [
+            540,
+            189,
+            200,
+            100
+        ],
+        "expected": [
+            "REWARD"
+        ],
+        "pre_wait_freezes": 500,
+        "action": "Click",
+        "target": [
+            182,
+            20,
+            100,
+            50
+        ],
+        "post_wait_freezes": 500,
+        "next": [
+            "领取奖励_通行证2_检测",
+            "领取奖励_通行证3_检测"
+        ],
+        "interrupt": [
+            "领取奖励_通行证1_结果"
+        ],
+        "timeout": 5000,
+        "on_error": [
+            "领取奖励_通行证_退出"
+        ]
+    },
+    "领取奖励_通行证2_检测": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            331,
+            253,
+            50,
+            50
+        ],
+        "template": [
+            "任务红点.png"
+        ],
+        "action": "Click",
+        "post_delay": 500,
+        "next": [
+            "领取奖励_检测页面_通行证2"
+        ],
+        "interrupt": [
+            "领取奖励_通行证2_检测",
+            "领取奖励_通行证3_检测"
+        ],
+        "timeout": 5000,
+        "on_error": [
+            "领取奖励_通行证_退出"
+        ]
+    },
+    "领取奖励_检测页面_通行证2": {
+        "recognition": "OCR",
+        "roi": [
+            926,
+            498,
+            100,
+            50
+        ],
+        "expected": [
+            "全部获得",
+            "全部獲得"
+        ],
+        "action": "Click",
+        "next": [
+            "领取奖励_通行证2_结果"
+        ],
+        "interrupt": [
+            "领取奖励_通行证2_检测"
+        ],
+        "timeout": 5000,
+        "on_error": [
+            "领取奖励_通行证_退出"
+        ]
+    },
+    "领取奖励_通行证2_结果": {
+        "recognition": "OCR",
+        "roi": [
+            540,
+            189,
+            200,
+            100
+        ],
+        "expected": [
+            "REWARD"
+        ],
+        "pre_wait_freezes": 500,
+        "action": "Click",
+        "target": [
+            182,
+            20,
+            100,
+            50
+        ],
+        "post_wait_freezes": 500,
+        "next": [
+            "领取奖励_通行证3_检测"
+        ],
+        "interrupt": [
+            "领取奖励_通行证2_结果"
+        ],
+        "timeout": 5000,
+        "on_error": [
+            "领取奖励_通行证_退出"
+        ]
+    },
+    "领取奖励_通行证3_检测": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            331,
+            322,
+            50,
+            50
+        ],
+        "template": [
+            "任务红点.png"
+        ],
+        "action": "Click",
+        "post_delay": 500,
+        "next": [
+            "领取奖励_检测页面_通行证3"
+        ],
+        "interrupt": [
+            "领取奖励_通行证3_检测"
+        ],
+        "timeout": 5000,
+        "on_error": [
+            "领取奖励_通行证_退出"
+        ]
+    },
+    "领取奖励_检测页面_通行证3": {
+        "recognition": "OCR",
+        "roi": [
+            926,
+            498,
+            100,
+            50
+        ],
+        "expected": [
+            "全部获得",
+            "全部獲得"
+        ],
+        "action": "Click",
+        "next": [
+            "领取奖励_通行证3_结果"
+        ],
+        "interrupt": [
+            "领取奖励_通行证3_检测"
+        ],
+        "timeout": 5000,
+        "on_error": [
+            "领取奖励_通行证_退出"
+        ]
+    },
+    "领取奖励_通行证3_结果": {
+        "recognition": "OCR",
+        "roi": [
+            540,
+            189,
+            200,
+            100
+        ],
+        "expected": [
+            "REWARD"
+        ],
+        "pre_wait_freezes": 500,
+        "action": "Click",
+        "target": [
+            182,
+            20,
+            100,
+            50
+        ],
+        "post_wait_freezes": 500,
+        "next": [
+            "领取奖励_通行证_退出"
+        ],
+        "interrupt": [
+            "领取奖励_通行证2_结果"
+        ]
+    },
+    "领取奖励_通行证_退出": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            99,
+            17,
+            50,
+            50
+        ],
+        "template": [
+            "通行证_退出键.png"
+        ],
+        "action": "Click",
+        "next": [
+            "领取奖励_检测主页_邮件"
+        ],
+        "interrupt": [
+            "领取奖励_通行证_退出"
+        ]
+    },
+    "领取奖励_检测主页_邮件": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1055,
+            15,
+            50,
+            50
+        ],
+        "template": [
+            "任务红点.png"
+        ],
+        "threshold": [
+            0.45
+        ],
+        "action": "Click",
+        "next": [
+            "领取奖励_邮件_全部领取"
+        ],
+        "on_error": [
+            "检测主页"
+        ]
+    },
+    "领取奖励_邮件_全部领取": {
+        "recognition": "OCR",
+        "roi": [
+            1090,
+            656,
+            100,
+            50
+        ],
+        "expected": [
+            "全部领取",
+            "全部領取"
+        ],
+        "action": "Click",
+        "next": [
+            "领取奖励_邮件_结果"
+        ],
+        "interrupt": [
+            "领取奖励_邮件_全部领取"
+        ],
+        "timeout": 5000,
+        "on_error": [
+            "领取奖励_邮件_返回主界面"
+        ]
+    },
+    "领取奖励_邮件_结果": {
+        "recognition": "OCR",
+        "roi": [
+            540,
+            189,
+            200,
+            100
+        ],
+        "expected": [
+            "REWARD"
+        ],
+        "pre_wait_freezes": 500,
+        "action": "Click",
+        "target": [
+            182,
+            20,
+            100,
+            50
+        ],
+        "post_wait_freezes": 500,
+        "next": [
+            "领取奖励_邮件_返回主界面"
+        ],
+        "interrupt": [
+            "领取奖励_邮件_结果"
+        ],
+        "timeout": 5000,
+        "on_error": [
+            "领取奖励_邮件_全部领取"
+        ]
+    },
+    "领取奖励_邮件_返回主界面": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            100,
+            17,
+            50,
+            50
+        ],
+        "template": [
+            "任务_返回键.png"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": [
+            "检测主页"
+        ],
+        "timeout": 5000,
+        "on_error": [
+            "返回主页图片",
+            "领取奖励_邮件_返回主界面"
+        ]
+    }
+}

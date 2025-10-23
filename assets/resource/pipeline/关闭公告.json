@@ -1,0 +1,118 @@
+{
+    "签到检测": {
+        "timeout": 10000,
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "post_wait_freezes": 200,
+        "next": [
+            "日常签到图片",
+            "日常签到OCR",
+            "关闭公告",
+            "关闭新闻"
+        ],
+        "on_error": [
+            "检测主页"
+        ]
+    },
+    "日常签到图片": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            276,
+            160,
+            742,
+            509
+        ],
+        "template": [
+            "已签到.png",
+            "已签到_2_繁中.png"
+        ],
+        "action": "Click",
+        "target": [
+            35,
+            352,
+            1,
+            1
+        ],
+        "next": [
+            "签到检测"
+        ]
+    },
+    "日常签到OCR": {
+        "recognition": "OCR",
+        "roi": [
+            276,
+            160,
+            742,
+            509
+        ],
+        "expected": [
+            "已签到",
+            "已簽到",
+            "已舞到",
+            "已薇到",
+            "已氨到",
+            "已簸到",
+            "已震到"
+        ],
+        "action": "Click",
+        "target": [
+            35,
+            352,
+            1,
+            1
+        ],
+        "next": [
+            "签到检测"
+        ]
+    },
+    "关闭公告": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "关闭公告1.png",
+            "关闭公告2.png",
+            "关闭公告3.png"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 200,
+        "next": "签到检测",
+        "on_error": [
+            "检测主页"
+        ]
+    },
+    "关闭新闻": {
+        "recognition": "OCR",
+        "roi": [
+            847,
+            140,
+            170,
+            40
+        ],
+        "expected": [
+            "7日期间不再观看",
+            "7日期間不再觀看"
+        ],
+        "action": "Click",
+        "target": [
+            990,
+            162,
+            1,
+            1
+        ],
+        "post_wait_freezes": 300,
+        "next": [
+            "关闭新闻2"
+        ]
+    },
+    "关闭新闻2": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            123,
+            446,
+            1,
+            1
+        ],
+        "post_wait_freezes": 300,
+        "next": "签到检测"
+    }
+}

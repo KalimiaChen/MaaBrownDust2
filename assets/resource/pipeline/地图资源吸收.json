@@ -1,0 +1,509 @@
+{
+    "地图资源_检测主页": {
+        "recognition": "OCR",
+        "roi": [
+            61,
+            622,
+            75,
+            75
+        ],
+        "expected": [
+            "抽抽乐",
+            "抽抽樂"
+        ],
+        "action": "Click",
+        "target": [
+            1143,
+            655,
+            1,
+            1
+        ],
+        "next": "地图资源_检测卡带界面"
+    },
+    "地图资源_检测卡带界面": {
+        "recognition": "OCR",
+        "roi": [
+            79,
+            7,
+            247,
+            50
+        ],
+        "expected": [
+            "游戏卡带收藏集",
+            "遊戲卡帶收藏集",
+            "遊戲卡带收藏集"
+        ],
+        "action": "DoNothing",
+        "next": "地图资源_寻找剧情卡带",
+        "interrupt": [
+            "地图资源_游戏卡带界面上滑"
+        ]
+    },
+    "地图资源_寻找剧情卡带": {
+        "recognition": "OCR",
+        "roi": [
+            76,
+            63,
+            371,
+            197
+        ],
+        "expected": [
+            "故事游戏卡带",
+            "故事遊戲卡帶"
+        ],
+        "action": "DoNothing",
+        "next": "地图资源_游戏卡带界面_寻找第七章卡带",
+        "interrupt": [
+            "地图资源_寻找8+卡带",
+            "地图资源_游戏卡带界面右滑"
+        ]
+    },
+    "地图资源_游戏卡带界面上滑": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            48,
+            353,
+            1,
+            1
+        ],
+        "end": [
+            48,
+            566,
+            1,
+            1
+        ],
+        "duration": 500,
+        "post_wait_freezes": 200,
+        "next": [
+            "地图资源_检测卡带界面"
+        ]
+    },
+    "地图资源_游戏卡带界面_寻找第七章卡带": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            80,
+            120,
+            1160,
+            130
+        ],
+        "threshold": 0.90,
+        "template": [
+            "卡带图片_第七章.png",
+            "卡带图片_第七章_选择中.png"
+        ],
+        "action": "Click",
+        "next": [
+            "地图资源_检测进入地图_图片识别",
+            "地图资源_检测进入地图_OCR"
+        ],
+        "interrupt": [
+            "地图资源_游戏卡带界面_寻找第七章卡带"
+        ]
+    },
+    "地图资源_检测进入地图_图片识别": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1143,
+            7,
+            1247,
+            68
+        ],
+        "template": "home键.png",
+        "action": "DoNothing",
+        "post_delay": 3000,
+        "next": "地图资源_检测每日派遣",
+        "interrupt": [
+            "地图资源_第七章_检测传送阵按键",
+            "地图资源_每日派遣_左摇右晃_左摇"
+        ]
+    },
+    "地图资源_检测进入地图_OCR": {
+        "recognition": "OCR",
+        "roi": [
+            1143,
+            7,
+            1247,
+            68
+        ],
+        "expected": "H",
+        "action": "DoNothing",
+        "post_delay": 3000,
+        "next": "地图资源_检测每日派遣",
+        "interrupt": [
+            "地图资源_第七章_检测传送阵按键",
+            "地图资源_每日派遣_左摇右晃_左摇"
+        ]
+    },
+    "地图资源_寻找8+卡带": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            80,
+            120,
+            1160,
+            130
+        ],
+        "threshold": 0.90,
+        "template": [
+            "卡带图片_第八章.png",
+            "卡带图片_第九章.png",
+            "卡带图片_第十章.png",
+            "卡带图片_第十一章.png",
+            "卡带图片_第十二章.png",
+            "卡带图片_第十三章.png",
+            "卡带图片_第十四章.png",
+            "卡带图片_第十五章.png",
+            "卡带图片_第十六章.png",
+            "卡带图片_第十七章.png",
+            "卡带图片_第十八章.png"
+        ],
+        "action": "DoNothing",
+        "next": "地图资源_游戏卡带界面左滑",
+        "interrupt": [
+            "地图资源_寻找剧情卡带",
+            "地图资源_游戏卡带界面_寻找第七章卡带"
+        ]
+    },
+    "地图资源_游戏卡带界面右滑": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            1111,
+            191,
+            1,
+            1
+        ],
+        "end": [
+            918,
+            191,
+            1,
+            1
+        ],
+        "duration": 500,
+        "post_wait_freezes": 200,
+        "next": [
+            "地图资源_寻找剧情卡带",
+            "地图资源_游戏卡带界面_寻找第七章卡带"
+        ]
+    },
+    "地图资源_游戏卡带界面左滑": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            177,
+            191,
+            1,
+            1
+        ],
+        "end": [
+            271,
+            191,
+            1,
+            1
+        ],
+        "duration": 500,
+        "post_wait_freezes": 200,
+        "next": [
+            "地图资源_寻找剧情卡带",
+            "地图资源_游戏卡带界面_寻找第七章卡带"
+        ]
+    },
+    "地图资源_检测每日派遣": {
+        "recognition": "TemplateMatch",
+        "template": "每日派遣图标.png",
+        "green_mask": true,
+        "threshold": [
+            0.4
+        ],
+        "roi": [
+            873,
+            525,
+            122,
+            126
+        ],
+        "action": "Click",
+        "post_wait_freezes": 7000,
+        "next": "地图资源_每日派遣_左摇右晃_左摇"
+    },
+    "地图资源_每日派遣_左摇右晃_左摇": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            391,
+            511,
+            1,
+            1
+        ],
+        "post_delay": 1000,
+        "next": "地图资源_第七章_检测传送阵按键"
+    },
+    "地图资源_每日派遣_左摇右晃_右晃": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            852,
+            266,
+            1,
+            1
+        ],
+        "post_wait_freezes": 1000,
+        "next": "地图资源_第七章_检测传送阵按键"
+    },
+    "地图资源_第七章_检测传送阵按键": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            922,
+            562,
+            60,
+            60
+        ],
+        "template": "传送阵按键.png",
+        "action": "Click",
+        "next": [
+            "地图资源_第七章_检测地图"
+        ],
+        "interrupt": [
+            "地图资源_第七章_检测传送阵按键"
+        ]
+    },
+    "地图资源_第七章_检测地图": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "template": "检测地图_移动魔法阵.png",
+        "action": "DoNothing",
+        "next": [
+            "地图资源_第七章_检测地图名_战斗1"
+        ],
+        "interrupt": [
+            "地图资源_第七章_检测地图名_检测左移键",
+            "地图资源_第七章_检测地图名_左移"
+        ]
+    },
+    "地图资源_第七章_检测地图名_战斗1": {
+        "recognition": "OCR",
+        "roi": [
+            516,
+            639,
+            276,
+            33
+        ],
+        "expected": [
+            "洞穴神殿",
+            "洞穴神殿"
+        ],
+        "next": [
+            "地图资源_第七章_移动战斗1"
+        ]
+    },
+    "地图资源_第七章_检测地图名_检测左移键": {
+        "doc": "未检测到左移键则右移到战斗1",
+        "recognition": "TemplateMatch",
+        "roi": [
+            230,
+            323,
+            48,
+            48
+        ],
+        "template": "检测地图_左移键.png",
+        "threshold": 0.45,
+        "green_mask": true,
+        "inverse": true,
+        "action": "Click",
+        "target": [
+            1026,
+            346,
+            1,
+            1
+        ],
+        "next": "地图资源_第七章_检测地图"
+    },
+    "地图资源_第七章_检测地图名_左移": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            251,
+            345,
+            1,
+            1
+        ],
+        "next": "地图资源_第七章_检测地图"
+    },
+    "地图资源_第七章_移动战斗1": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            406,
+            137,
+            468,
+            405
+        ],
+        "template": "检测地图_移动魔法阵2.png",
+        "action": "Click",
+        "next": [
+            "地图资源_第七章_战斗1_探索"
+        ]
+    },
+    "地图资源_第七章_战斗1_探索": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            961,
+            451,
+            292,
+            252
+        ],
+        "template": "地图资源_探索1.png",
+        "action": "Click",
+        "post_delay": 3000,
+        "next": "地图资源_第七章_战斗1_吸收0"
+    },
+    "地图资源_第七章_战斗1_吸收0": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            961,
+            451,
+            292,
+            252
+        ],
+        "template": "地图资源_吸收0.png",
+        "action": "Click",
+        "post_delay": 4000,
+        "next": "地图资源_第七章_战斗1_召集0"
+    },
+    "地图资源_第七章_战斗1_召集0": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            961,
+            451,
+            292,
+            252
+        ],
+        "template": "地图资源_召集0.png",
+        "action": "Click",
+        "post_delay": 3000,
+        "next": "地图资源_第七章_点击传送阵_战斗2"
+    },
+    "地图资源_第七章_点击传送阵_战斗2": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            922,
+            562,
+            60,
+            60
+        ],
+        "template": "传送阵按键.png",
+        "action": "Click",
+        "next": [
+            "地图资源_第七章_检测地图名_战斗2"
+        ],
+        "interrupt": [
+            "地图资源_第七章_右移_战斗2"
+        ]
+    },
+    "地图资源_第七章_右移_战斗2": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1001,
+            321,
+            55,
+            55
+        ],
+        "template": "检测地图_右移键.png",
+        "green_mask": true,
+        "threshold": 0.45,
+        "action": "Click",
+        "next": "地图资源_第七章_检测地图名_战斗2"
+    },
+    "地图资源_第七章_检测地图名_战斗2": {
+        "recognition": "OCR",
+        "roi": [
+            516,
+            639,
+            276,
+            33
+        ],
+        "expected": [
+            "隐藏的神殿",
+            "隱藏的神殿"
+        ],
+        "next": [
+            "地图资源_第七章_移动战斗2"
+        ]
+    },
+    "地图资源_第七章_移动战斗2": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            406,
+            137,
+            468,
+            405
+        ],
+        "template": "检测地图_移动魔法阵2.png",
+        "action": "Click",
+        "next": [
+            "地图资源_第七章_战斗2_吸收1"
+        ]
+    },
+    "地图资源_第七章_战斗2_吸收1": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            961,
+            451,
+            292,
+            252
+        ],
+        "template": "地图资源_吸收1.png",
+        "action": "Click",
+        "post_delay": 3500,
+        "next": "地图资源_第七章_战斗2_召集1"
+    },
+    "地图资源_第七章_战斗2_召集1": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            961,
+            451,
+            292,
+            252
+        ],
+        "template": "地图资源_召集1.png",
+        "action": "Click",
+        "post_wait_freezes": 2000,
+        "next": "地图资源_第七章_切换卡带"
+    },
+    "地图资源_第七章_切换卡带": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            539,
+            636,
+            130,
+            66
+        ],
+        "template": [
+            "地图资源_切换卡带键.png",
+            "地图资源_切换卡带键_绿幕.png"
+        ],
+        "green_mask": true,
+        "threshold": 0.45,
+        "action": "Click",
+        "post_wait_freezes": 200,
+        "next": "地图资源_切换卡带_第八章",
+        "interrupt": "地图资源_第七章_切换卡带"
+    },
+    "地图资源_切换卡带_第八章": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            41,
+            601,
+            1240,
+            90
+        ],
+        "template": "卡带图片_第八章_局内.png",
+        "threshold": 0.9,
+        "action": "Click",
+        "pre_wait_freezes": 200,
+        "next": "地图资源_第八章_点击传送阵"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "点击测试": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            1,
+            1,
+            1,
+            1
+        ]
+    }
+}

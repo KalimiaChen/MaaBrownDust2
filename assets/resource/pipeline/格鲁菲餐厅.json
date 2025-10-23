@@ -1,0 +1,150 @@
+{
+    "格鲁菲餐厅_检测主页": {
+        "recognition": "OCR",
+        "roi": [
+            61,
+            622,
+            75,
+            75
+        ],
+        "expected": [
+            "抽抽乐",
+            "抽抽樂"
+        ],
+        "action": "Click",
+        "target": [
+            107,
+            172,
+            1,
+            1
+        ],
+        "post_wait_freezes": 500,
+        "next": "格鲁菲餐厅_前往餐厅"
+    },
+    "格鲁菲餐厅_前往餐厅": {
+        "recognition": "OCR",
+        "roi": [
+            500,
+            200,
+            350,
+            150
+        ],
+        "expected": [
+            "立即前往餐厅",
+            "立即前往餐廳"
+        ],
+        "action": "Click",
+        "next": "格鲁菲餐厅_检测餐厅"
+    },
+    "格鲁菲餐厅_检测餐厅": {
+        "recognition": "OCR",
+        "roi": [
+            985,
+            601,
+            295,
+            119
+        ],
+        "expected": [
+            "已满",
+            "已滿",
+            "结算",
+            "結算"
+        ],
+        "action": "Click",
+        "next": "格鲁菲餐厅_结算"
+    },
+    "格鲁菲餐厅_结算": {
+        "recognition": "OCR",
+        "roi": [
+            510,
+            439,
+            272,
+            100
+        ],
+        "expected": [
+            "结算",
+            "結算"
+        ],
+        "action": "Click",
+        "next": "格鲁菲餐厅_结算等待",
+        "interrupt": [
+            "格鲁菲餐厅_结算",
+            "格鲁菲餐厅_结算完毕确认"
+        ]
+    },
+    "格鲁菲餐厅_结算等待": {
+        "recognition": "OCR",
+        "roi": [
+            426,
+            180,
+            426,
+            180
+        ],
+        "expected": "REWARD",
+        "action": "Click",
+        "target": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "next": "格鲁菲餐厅_结算等待确认",
+        "interrupt": [
+            "格鲁菲餐厅_结算完毕确认"
+        ]
+    },
+    "格鲁菲餐厅_结算完毕确认": {
+        "recognition": "OCR",
+        "roi": [
+            1180,
+            601,
+            20,
+            19
+        ],
+        "expected": "0",
+        "next": "格鲁菲餐厅_熟客"
+    },
+    "格鲁菲餐厅_结算等待确认": {
+        "recognition": "OCR",
+        "roi": [
+            426,
+            180,
+            426,
+            180
+        ],
+        "expected": "REWARD",
+        "inverse": true,
+        "action": "DoNothing",
+        "next": "格鲁菲餐厅_熟客",
+        "on_error": [
+            "格鲁菲餐厅_结算等待"
+        ]
+    },
+    "格鲁菲餐厅_熟客": {
+        "recognition": "OCR",
+        "roi": [
+            64,
+            158,
+            76,
+            76
+        ],
+        "expected": [
+            "熟客",
+            "熟客"
+        ],
+        "action": "Click",
+        "target": [
+            107,
+            187,
+            1,
+            1
+        ],
+        "next": [
+            "返回主页",
+            "返回主页图片"
+        ],
+        "interrupt": [
+            "格鲁菲餐厅_熟客"
+        ]
+    }
+}

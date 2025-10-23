@@ -1,0 +1,225 @@
+{
+    "活动日常_检测主页": {
+        "recognition": "OCR",
+        "roi": [
+            61,
+            622,
+            75,
+            75
+        ],
+        "expected": [
+            "抽抽乐",
+            "抽抽樂"
+        ],
+        "action": "Click",
+        "target": [
+            1118,
+            327,
+            1,
+            1
+        ],
+        "next": "活动日常_前往挑战战斗",
+        "timeout": 10000,
+        "on_error": [
+            "活动日常_检测主页"
+        ]
+    },
+    "活动日常_前往挑战战斗": {
+        "recognition": "OCR",
+        "roi": [
+            533,
+            520,
+            300,
+            150
+        ],
+        "expected": [
+            "挑战战斗",
+            "挑戰戰鬥"
+        ],
+        "action": "Click",
+        "next": "活动日常_检测挑战界面",
+        "interrupt": [
+            "活动日常_前往挑战战斗"
+        ]
+    },
+    "活动日常_检测挑战界面": {
+        "recognition": "OCR",
+        "roi": [
+            152,
+            16,
+            150,
+            50
+        ],
+        "expected": [
+            "挑战战斗",
+            "挑戰戰鬥"
+        ],
+        "action": "Swipe",
+        "begin": [
+            216,
+            560,
+            1,
+            1
+        ],
+        "end": [
+            [
+                216,
+                170,
+                1,
+                1
+            ],
+            [
+                226,
+                170,
+                1,
+                1
+            ]
+        ],
+        "next": "活动日常_点击快速战斗"
+    },
+    "活动日常_点击快速战斗": {
+        "recognition": "OCR",
+        "roi": [
+            744,
+            639,
+            150,
+            50
+        ],
+        "expected": [
+            "快速战斗",
+            "快速戰鬥"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": [
+            "活动日常_免费AP确认"
+        ],
+        "interrupt": [
+            "选中仅使用免费AP",
+            "活动日常_点击快速战斗"
+        ]
+    },
+    "活动日常_免费AP确认": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            803,
+            224,
+            50,
+            40
+        ],
+        "template": [
+            "镜中之战_选中状态.png"
+        ],
+        "threshold": [
+            0.95
+        ],
+        "action": "DoNothing",
+        "next": "活动日常_快速战斗_拉满",
+        "interrupt": [
+            "选中仅使用免费AP",
+            "活动日常_免费AP确认"
+        ]
+    },
+    "选中仅使用免费AP": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            830,
+            240,
+            1,
+            1
+        ],
+        "next": "活动日常_免费AP确认",
+        "interrupt": [
+            "活动日常_随机点击"
+        ]
+    },
+    "活动日常_随机点击": {
+        "doc": "用于移开光标好判断是否点上,考虑优化成只移动光标",
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            47,
+            235,
+            1,
+            1
+        ],
+        "next": [
+            "活动日常_免费AP确认"
+        ]
+    },
+    "活动日常_快速战斗_拉满": {
+        "recognition": "OCR",
+        "roi": [
+            750,
+            373,
+            90,
+            30
+        ],
+        "expected": [
+            "MAX"
+        ],
+        "action": "Click",
+        "next": "活动日常_快速战斗_开始战斗"
+    },
+    "活动日常_快速战斗_开始战斗": {
+        "recognition": "OCR",
+        "roi": [
+            649,
+            537,
+            100,
+            50
+        ],
+        "expected": [
+            "战斗",
+            "戰鬥"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": "活动日常_快速战斗_奖励确认",
+        "interrupt": [
+            "活动日常_快速战斗_开始战斗"
+        ]
+    },
+    "活动日常_快速战斗_奖励确认": {
+        "recognition": "OCR",
+        "roi": [
+            567,
+            200,
+            149,
+            48
+        ],
+        "expected": "REWARD",
+        "pre_delay": 200,
+        "action": "Click",
+        "target": [
+            637,
+            523,
+            1,
+            1
+        ],
+        "post_wait_freezes": 500,
+        "next": "活动日常_返回主界面"
+    },
+    "活动日常_返回主界面": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            86,
+            8,
+            62,
+            55
+        ],
+        "template": [
+            "活动返回键.png",
+            "任务_返回键.png",
+            "界面返回键_绿幕.png"
+        ],
+        "threshold": 0.4,
+        "action": "Click",
+        "pre_delay": 500,
+        "next": "检测主页",
+        "interrupt": [
+            "活动日常_返回主界面"
+        ]
+    }
+}

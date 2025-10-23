@@ -1,0 +1,208 @@
+{
+    "抽抽乐_检测主页": {
+        "recognition": "OCR",
+        "roi": [
+            61,
+            622,
+            75,
+            75
+        ],
+        "expected": [
+            "抽抽乐",
+            "抽抽樂"
+        ],
+        "action": "Click",
+        "next": "检测抽抽乐界面"
+    },
+    "检测抽抽乐界面": {
+        "recognition": "OCR",
+        "roi": [
+            149,
+            10,
+            150,
+            40
+        ],
+        "expected": [
+            "抽抽乐",
+            "抽抽樂"
+        ],
+        "action": "DoNothing",
+        "next": "检测免费单抽"
+    },
+    "检测免费单抽": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "next": [
+            "免费单抽ocr",
+            "免费单抽图片识别"
+        ],
+        "interrupt": [
+            "抽抽乐上滑"
+        ]
+    },
+    "选择卡池": {
+        "doc": "选中当前顶部有日期的卡池",
+        "recognition": "OCR",
+        "roi": [
+            197,
+            169,
+            119,
+            54
+        ],
+        "expected": "D",
+        "action": "Click",
+        "target_offset": [
+            10,
+            10,
+            1,
+            1
+        ],
+        "next": [
+            "检测免费单抽"
+        ]
+    },
+    "免费单抽图片识别": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            891,
+            612,
+            198,
+            72
+        ],
+        "pre_wait_freezes": 500,
+        "template": "免费1次.png",
+        "action": "Click",
+        "next": [
+            "单抽确定"
+        ]
+    },
+    "免费单抽ocr": {
+        "recognition": "OCR",
+        "roi": [
+            891,
+            612,
+            198,
+            72
+        ],
+        "pre_wait_freezes": 500,
+        "expected": [
+            "免费1次",
+            "免費1次",
+            "免背1次",
+            "免黄1次"
+        ],
+        "action": "Click",
+        "next": [
+            "单抽确定"
+        ]
+    },
+    "单抽确定": {
+        "recognition": "OCR",
+        "roi": [
+            640,
+            381,
+            147,
+            123
+        ],
+        "expected": [
+            "购买",
+            "購買"
+        ],
+        "action": "Click",
+        "post_delay": 1500,
+        "next": "单抽出货",
+        "interrupt": [
+            "单抽跳过"
+        ]
+    },
+    "单抽出货": {
+        "recognition": "TemplateMatch",
+        "doc": "单抽出5星了哦",
+        "template": [
+            "soperfect.png"
+        ],
+        "action": "Click",
+        "post_delay": 500,
+        "next": "单抽跳过"
+    },
+    "单抽跳过": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            35,
+            352,
+            1,
+            1
+        ],
+        "post_wait_freezes": 1000,
+        "next": "单抽返回",
+        "interrupt": [
+            "免费单抽ocr",
+            "免费单抽图片识别"
+        ]
+    },
+    "单抽返回": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            79,
+            604,
+            72,
+            65
+        ],
+        "template": [
+            "抽卡成功检测.png",
+            "抽卡成功检测2.png"
+        ],
+        "action": "Click",
+        "target": [
+            111,
+            36,
+            1,
+            1
+        ],
+        "pre_delay": 500,
+        "next": "检测抽抽乐界面"
+    },
+    "抽抽乐上滑": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            280,
+            208,
+            1,
+            1
+        ],
+        "end": [
+            280,
+            160,
+            1,
+            1
+        ],
+        "duration": 1000,
+        "post_delay": 300,
+        "next": [
+            "选择卡池"
+        ],
+        "interrupt": "结束每日单抽"
+    },
+    "结束每日单抽": {
+        "recognition": "OCR",
+        "roi": [
+            190,
+            162,
+            155,
+            133
+        ],
+        "expected": [
+            "12PICK"
+        ],
+        "action": "Click",
+        "target": [
+            104,
+            32,
+            1,
+            1
+        ],
+        "next": "检测主页"
+    }
+}
