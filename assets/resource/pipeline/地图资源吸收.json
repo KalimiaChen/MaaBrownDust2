@@ -93,6 +93,7 @@
             "卡带图片_第七章_选择中.png"
         ],
         "action": "Click",
+        "post_wait_freezes": 1000,
         "next": [
             "地图资源_检测进入地图_图片识别",
             "地图资源_检测进入地图_OCR"
@@ -114,8 +115,7 @@
         "post_delay": 3000,
         "next": "地图资源_检测每日派遣",
         "interrupt": [
-            "地图资源_第七章_检测传送阵按键",
-            "地图资源_每日派遣_左摇右晃_左摇"
+            "地图资源_第七章_检测传送阵按键"
         ]
     },
     "地图资源_检测进入地图_OCR": {
@@ -131,8 +131,7 @@
         "post_delay": 3000,
         "next": "地图资源_检测每日派遣",
         "interrupt": [
-            "地图资源_第七章_检测传送阵按键",
-            "地图资源_每日派遣_左摇右晃_左摇"
+            "地图资源_第七章_检测传送阵按键"
         ]
     },
     "地图资源_寻找8+卡带": {
@@ -223,31 +222,20 @@
         ],
         "action": "Click",
         "post_wait_freezes": 7000,
-        "next": "地图资源_每日派遣_左摇右晃_左摇"
+        "next": "地图资源_每日派遣_点击传送阵"
     },
-    "地图资源_每日派遣_左摇右晃_左摇": {
+    "地图资源_每日派遣_点击传送阵": {
         "recognition": "DirectHit",
         "action": "Click",
         "target": [
-            391,
-            511,
-            1,
-            1
+            640,
+            360,
+            0,
+            0
         ],
-        "post_delay": 1000,
-        "next": "地图资源_第七章_检测传送阵按键"
-    },
-    "地图资源_每日派遣_左摇右晃_右晃": {
-        "recognition": "DirectHit",
-        "action": "Click",
-        "target": [
-            852,
-            266,
-            1,
-            1
-        ],
-        "post_wait_freezes": 1000,
-        "next": "地图资源_第七章_检测传送阵按键"
+        "next": [
+            "地图资源_第七章_检测地图"
+        ]
     },
     "地图资源_第七章_检测传送阵按键": {
         "recognition": "TemplateMatch",
@@ -490,7 +478,8 @@
         "action": "Click",
         "post_wait_freezes": 200,
         "next": "地图资源_切换卡带_第八章",
-        "interrupt": "地图资源_第七章_切换卡带"
+        "timeout": 5000,
+        "on_error": "地图资源_第七章_切换卡带"
     },
     "地图资源_切换卡带_第八章": {
         "recognition": "TemplateMatch",
@@ -503,7 +492,7 @@
         "template": "卡带图片_第八章_局内.png",
         "threshold": 0.9,
         "action": "Click",
-        "pre_wait_freezes": 200,
+        "pre_wait_freezes": 500,
         "next": "地图资源_第八章_点击传送阵"
     }
 }

@@ -3,10 +3,6 @@
   "message": "Welcome to MaaFramework 4 BrownDust2!",
   "controller": [
     {
-      "name": "模拟器",
-      "type": "Adb"
-    },
-    {
       "name": "桌面端",
       "type": "Win32",
       "win32": {
@@ -15,8 +11,18 @@
         "input": 1,
         "screencap": 2
       }
+    },
+    {
+      "name": "模拟器",
+      "type": "Adb"
     }
   ],
+  "agent": {
+    "child_exec": "python",
+    "child_args": [
+      "{PROJECT_DIR}/agent/main.py"
+    ]
+  },
   "resource": [
     {
       "name": "default",
@@ -52,7 +58,10 @@
     },
     {
       "name": "快速狩猎",
-      "entry": "快速狩猎_检测主页"
+      "entry": "快速狩猎_检测主页",
+      "option": [
+        "圣石材料类型" // 引用下面定义的“圣石材料类型”选项
+      ]
     },
     {
       "name": "地图资源吸收",
@@ -90,5 +99,96 @@
       "name": "结束游戏",
       "entry": "启动BD2"
     }
-  ]
+  ],
+  "option": {
+    "圣石材料类型": {
+      "cases": [
+        {
+          "name": "自动选择最少材料",
+          "pipeline_override": {
+            "快速狩猎_圣石洞穴_材料选择": {
+              "recognition": {
+                "param": {
+                  "custom_recognition_param": {
+                    "selected_material_type": "min"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "火材料",
+          "pipeline_override": {
+            "快速狩猎_圣石洞穴_材料选择": {
+              "recognition": {
+                "param": {
+                  "custom_recognition_param": {
+                    "selected_material_type": "火"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "水材料",
+          "pipeline_override": {
+            "快速狩猎_圣石洞穴_材料选择": {
+              "recognition": {
+                "param": {
+                  "custom_recognition_param": {
+                    "selected_material_type": "水"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "风材料",
+          "pipeline_override": {
+            "快速狩猎_圣石洞穴_材料选择": {
+              "recognition": {
+                "param": {
+                  "custom_recognition_param": {
+                    "selected_material_type": "风"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "光材料",
+          "pipeline_override": {
+            "快速狩猎_圣石洞穴_材料选择": {
+              "recognition": {
+                "param": {
+                  "custom_recognition_param": {
+                    "selected_material_type": "光"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "暗材料",
+          "pipeline_override": {
+            "快速狩猎_圣石洞穴_材料选择": {
+              "recognition": {
+                "param": {
+                  "custom_recognition_param": {
+                    "selected_material_type": "暗"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "advanced": {}
 }

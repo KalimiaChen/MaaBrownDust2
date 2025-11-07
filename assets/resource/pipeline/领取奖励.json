@@ -37,7 +37,39 @@
         "post_wait_freezes": 500,
         "next": [
             "领取奖励_每日任务_结果"
+        ],
+        "timeout": 5000,
+        "on_error": [
+            "领取奖励_检测页面_每日任务2"
         ]
+    },
+    "领取奖励_检测页面_每日任务2": {
+        "recognition": "OCR",
+        "roi": [
+            182,
+            20,
+            100,
+            50
+        ],
+        "expected": [
+            "每日任务",
+            "每日任務"
+        ],
+        "action": "Click",
+        "target": [
+            1119,
+            668,
+            1,
+            1
+        ],
+        "post_wait_freezes": 500,
+        "next": [
+            "领取奖励_每日任务_结果"
+        ],
+        "interrupt": [
+            "领取奖励_每周任务"
+        ],
+        "timeout": 5000
     },
     "领取奖励_每日任务_结果": {
         "recognition": "OCR",
@@ -402,6 +434,7 @@
         "next": [
             "领取奖励_检测主页_邮件"
         ],
+        "post_wait_freezes": 1000,
         "interrupt": [
             "领取奖励_通行证_退出"
         ]
@@ -418,7 +451,7 @@
             "任务红点.png"
         ],
         "threshold": [
-            0.45
+            0.35
         ],
         "action": "Click",
         "next": [

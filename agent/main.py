@@ -5,6 +5,7 @@ from maa.toolkit import Toolkit
 
 import my_action
 import my_reco
+import 圣石选择
 
 
 def main():

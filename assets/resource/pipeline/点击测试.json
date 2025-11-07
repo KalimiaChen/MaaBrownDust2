@@ -8,5 +8,41 @@
             1,
             1
         ]
+    },
+    "点击测试2": {
+        "recognition": "OCR",
+        "roi": [
+            380,
+            496,
+            100,
+            100
+        ],
+        "expected": [
+            "开转"
+        ],
+        "target_offset": [
+            50,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "next": [
+            "点击测试2"
+        ],
+        "timeout": 5000,
+        "on_error": [
+            "确认测试2"
+        ]
+    },
+    "确认测试2": {
+        "recognition": "OCR",
+        "expected": [
+            "确认"
+        ],
+        "action": "Click",
+        "next": [
+            "点击测试2"
+        ]
     }
 }

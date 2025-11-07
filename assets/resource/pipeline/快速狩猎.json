@@ -239,16 +239,86 @@
         "next": "快速狩猎_圣石洞穴_材料选择"
     },
     "快速狩猎_圣石洞穴_材料选择": {
+        "recognition": "Custom",
+        "custom_recognition": "material_selector",
+        "action": "DoNothing",
+        "next": []
+    },
+    "快速狩猎_圣石洞穴_火材料选择": {
         "recognition": "OCR",
         "roi": [
-            145,
-            80,
+            150,
             85,
-            223
+            84,
+            217
+        ],
+        "expected": [
+            "火的洞穴",
+            "火的洞穴"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 200,
+        "next": "快速狩猎_圣石洞穴_材料确认"
+    },
+    "快速狩猎_圣石洞穴_水材料选择": {
+        "recognition": "OCR",
+        "roi": [
+            150,
+            85,
+            84,
+            217
+        ],
+        "expected": [
+            "水的洞穴",
+            "水的洞穴"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 200,
+        "next": "快速狩猎_圣石洞穴_材料确认"
+    },
+    "快速狩猎_圣石洞穴_风材料选择": {
+        "recognition": "OCR",
+        "roi": [
+            150,
+            85,
+            84,
+            217
         ],
         "expected": [
             "风的洞穴",
             "風的洞穴"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 200,
+        "next": "快速狩猎_圣石洞穴_材料确认"
+    },
+    "快速狩猎_圣石洞穴_光材料选择": {
+        "recognition": "OCR",
+        "roi": [
+            150,
+            85,
+            84,
+            217
+        ],
+        "expected": [
+            "光的洞穴",
+            "光的洞穴"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 200,
+        "next": "快速狩猎_圣石洞穴_材料确认"
+    },
+    "快速狩猎_圣石洞穴_暗材料选择": {
+        "recognition": "OCR",
+        "roi": [
+            150,
+            85,
+            84,
+            217
+        ],
+        "expected": [
+            "暗的洞穴",
+            "暗的洞穴"
         ],
         "action": "Click",
         "post_wait_freezes": 200,

@@ -93,10 +93,11 @@
         "green_mask": true,
         "threshold": 0.4,
         "action": "Click",
+        "post_wait_freezes": 1000,
         "next": [
             "地图资源_第十章_安全区_探索"
         ],
-        "interrupt": [
+        "on_error": [
             "地图资源_第十章_移动安全区_返回"
         ]
     },
@@ -129,7 +130,7 @@
         "template": "地图资源_吸收0.png",
         "threshold": 0.75,
         "action": "Click",
-        "post_delay": 3000,
+        "post_wait_freezes": 3000,
         "next": "地图资源_第十章_点击传送阵_战斗1"
     },
     "地图资源_第十章_点击传送阵_战斗1": {
@@ -141,8 +142,11 @@
             60
         ],
         "template": "传送阵按键.png",
+        "threshold": [
+            0.45
+        ],
         "action": "Click",
-        "post_wait_freezes": 200,
+        "post_wait_freezes": 500,
         "next": [
             "地图资源_第十章_检测地图名_战斗1"
         ],

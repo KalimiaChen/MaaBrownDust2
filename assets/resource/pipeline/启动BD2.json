@@ -7,6 +7,7 @@
             "触摸启动",
             "启动游戏中",
             "触摸启动英文",
+            "下载检测",
             "返回主页",
             "返回主页图片",
             "卡带返回主页",
@@ -23,6 +24,21 @@
     "触摸启动英文": {
         "recognition": "OCR",
         "expected": "TOUCH TO START",
+        "action": "Click",
+        "next": "启动BD2"
+    },
+    "下载检测": {
+        "recognition": "OCR",
+        "roi": [
+            652,
+            498,
+            150,
+            100
+        ],
+        "expected": [
+            "下载",
+            "下載"
+        ],
         "action": "Click",
         "next": "启动BD2"
     },
