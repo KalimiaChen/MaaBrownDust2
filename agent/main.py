@@ -3,9 +3,9 @@ import sys
 from maa.agent.agent_server import AgentServer
 from maa.toolkit import Toolkit
 
-import my_action
-import my_reco
-import 圣石选择
+import my_actions.my_action
+import my_recognitions.my_reco
+import my_recognitions.圣石选择
 
 
 def main():

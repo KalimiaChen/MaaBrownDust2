@@ -1,0 +1,142 @@
+{
+    "地图资源吸收_入口": {
+        "doc": "地图资源吸收任务入口，调用CustomAction处理所有预设章节。",
+        "recognition": "DirectHit",
+        "action": {
+            "type": "DoNothing"
+        },
+        "next": [
+            "地图资源吸收_启动处理器"
+        ]
+    },
+    "地图资源吸收_启动处理器": {
+        "doc": "调用MapResourceProcessor CustomAction开始处理所有章节。",
+        "recognition": "DirectHit",
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "MapResourceProcessor",
+                "custom_action_param": {
+                    "chapters_to_process": [
+                        {
+                            "chapter_num": 7,
+                            "maps": [
+                                {
+                                    "name": [
+                                        "洞穴神殿",
+                                        "洞穴神殿"
+                                    ],
+                                    "actions": [
+                                        "探索",
+                                        "吸收",
+                                        "召集"
+                                    ]
+                                },
+                                {
+                                    "name": [
+                                        "隐藏的神殿",
+                                        "隱藏的神殿"
+                                    ],
+                                    "actions": [
+                                        "吸收",
+                                        "召集"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "chapter_num": 8,
+                            "maps": [
+                                {
+                                    "name": [
+                                        "贫民区",
+                                        "貧民區"
+                                    ],
+                                    "actions": [
+                                        "探索",
+                                        "吸收",
+                                        "召集"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "chapter_num": 9,
+                            "maps": [
+                                {
+                                    "name": [
+                                        "加尔顿山前段",
+                                        "加爾頓山前段"
+                                    ],
+                                    "actions": [
+                                        "探索",
+                                        "吸收",
+                                        "召集"
+                                    ]
+                                },
+                                {
+                                    "name": [
+                                        "加尔顿山后段",
+                                        "加爾頓山後段"
+                                    ],
+                                    "actions": [
+                                        "吸收",
+                                        "召集"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "chapter_num": 10,
+                            "maps": [
+                                {
+                                    "name": [
+                                        "埃兰城市",
+                                        "埃蘭城市"
+                                    ],
+                                    "actions": [
+                                        "探索",
+                                        "吸收"
+                                    ]
+                                },
+                                {
+                                    "name": [
+                                        "官邸地下",
+                                        "官邸地下"
+                                    ],
+                                    "actions": [
+                                        "吸收"
+                                    ]
+                                },
+                                {
+                                    "name": [
+                                        "官邸大殿",
+                                        "官邸大殿"
+                                    ],
+                                    "actions": [
+                                        "吸收"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "next": [
+            "任务结束_返回主页"
+        ] // CustomAction执行完毕后，进入任务结束流程
+    },
+    "任务结束_返回主页": {
+        "doc": "所有地图资源吸收任务完成，尝试返回主页",
+        "recognition": "DirectHit",
+        "action": {
+            "type": "DoNothing"
+        },
+        "next": [
+            "返回主页"
+        ] // 引用 startup.json 中的 返回主页 节点，结束任务
+    },
+    // 引入通用的地图操作模板文件
+    "import": "sub_task_map_resource_template.json"
+}

@@ -180,7 +180,7 @@
             "任务_返回键.png"
         ],
         "action": "Click",
-        "post_wait_freezes": 1000,
+        "timeout": 5000,
         "next": [
             "领取奖励_检测主页_通行证"
         ],
@@ -434,7 +434,7 @@
         "next": [
             "领取奖励_检测主页_邮件"
         ],
-        "post_wait_freezes": 1000,
+        "post_wait_freezes": 500,
         "interrupt": [
             "领取奖励_通行证_退出"
         ]

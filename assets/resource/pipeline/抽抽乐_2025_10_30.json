@@ -187,6 +187,7 @@
             0
         ],
         "next": [
+            "检测12PICK更新",
             "检测免费单抽"
         ],
         "interrupt": [
@@ -258,6 +259,28 @@
         ],
         "action": "DoNothing",
         "next": "切换装备抽抽乐"
+    },
+    "检测12PICK更新": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "12PICK"
+                ],
+                "roi": [
+                    420,
+                    194,
+                    200,
+                    50
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "next": [
+            "切换装备抽抽乐"
+        ]
     },
     "切换装备抽抽乐": {
         "recognition": "DirectHit",
