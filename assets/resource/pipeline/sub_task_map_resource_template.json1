@@ -4,60 +4,32 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    61,
-                    622,
-                    75,
-                    75
-                ],
-                "expected": [
-                    "抽抽乐",
-                    "抽抽樂"
-                ]
+                "roi": [61, 622, 75, 75],
+                "expected": ["抽抽乐", "抽抽樂"]
             }
         },
         "action": {
             "type": "Click",
-            "param": {
-                "target": [
-                    1143,
-                    655,
-                    1,
-                    1
-                ]
-            }
+            "param": { "target": [1143, 655, 1, 1] }
         },
-        "next": [
-            "通用_检测卡带界面"
-        ]
+        "next": ["通用_检测卡带界面"],
+        "timeout": 10000,
+        "on_error": "通用_任务失败_返回主页" // 识别或点击失败，直接返回主页
     },
     "通用_检测卡带界面": {
         "doc": "检测是否进入游戏卡带收藏集界面",
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    79,
-                    7,
-                    247,
-                    50
-                ],
-                "expected": [
-                    "游戏卡带收藏集",
-                    "遊戲卡帶收藏集",
-                    "遊戲卡带收藏集"
-                ]
+                "roi": [79, 7, 247, 50],
+                "expected": ["游戏卡带收藏集", "遊戲卡帶收藏集", "遊戲卡带收藏集"]
             }
         },
-        "action": {
-            "type": "DoNothing"
-        },
-        "next": [
-            "通用_寻找指定章节卡带"
-        ],
-        "interrupt": [
-            "通用_游戏卡带界面上滑"
-        ]
+        "action": { "type": "DoNothing" },
+        "next": ["通用_寻找指定章节卡带"],
+        "timeout": 10000,
+        "interrupt": ["通用_游戏卡带界面上滑"], // 如果不是卡带界面，尝试上滑
+        "on_error": "通用_任务失败_返回主页" // 识别失败且上滑失败，返回主页
     },
     "通用_游戏卡带界面上滑": {
         "doc": "卡带界面向上滑动，寻找剧情卡带",
@@ -65,55 +37,33 @@
         "action": {
             "type": "Swipe",
             "param": {
-                "begin": [
-                    48,
-                    353,
-                    1,
-                    1
-                ],
-                "end": [
-                    48,
-                    566,
-                    1,
-                    1
-                ],
+                "begin": [48, 353, 1, 1],
+                "end": [48, 566, 1, 1],
                 "duration": 500
             }
         },
         "post_wait_freezes": 200,
-        "next": [
-            "通用_检测卡带界面"
-        ]
+        "next": ["通用_检测卡带界面"],
+        "timeout": 5000,
+        "on_error": "通用_游戏卡带界面上滑" // 滑动失败就重试
     },
+
     "通用_寻找指定章节卡带": {
         "doc": "在卡带界面寻找并点击指定章节卡带 (由CustomAction动态传入template)",
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [
-                    80,
-                    120,
-                    1160,
-                    130
-                ],
+                "roi": [80, 120, 1160, 130],
                 "threshold": 0.90,
-                "template": [
-                    "PLACEHOLDER_CHAPTER_CARD.png"
-                ] // <- 占位符
+                "template": ["PLACEHOLDER_CHAPTER_CARD.png"]
             }
         },
-        "action": {
-            "type": "Click"
-        },
+        "action": { "type": "Click" },
         "post_wait_freezes": 1000,
-        "next": [
-            "通用_检测进入地图"
-        ],
-        "interrupt": [
-            "通用_游戏卡带界面左滑",
-            "通用_游戏卡带界面右滑",
-            "通用_寻找指定章节卡带" // 找不到就继续滑动寻找
-        ]
+        "next": ["通用_检测进入地图"],
+        "timeout": 15000,
+        "interrupt": ["通用_游戏卡带界面左滑"], // 找不到，尝试左滑
+        "on_error": "通用_任务失败_返回主页" // 找不到且滑动失败，返回主页
     },
     "通用_游戏卡带界面左滑": {
         "doc": "卡带界面左滑",
@@ -121,25 +71,16 @@
         "action": {
             "type": "Swipe",
             "param": {
-                "begin": [
-                    177,
-                    191,
-                    1,
-                    1
-                ],
-                "end": [
-                    271,
-                    191,
-                    1,
-                    1
-                ],
+                "begin": [177, 191, 1, 1],
+                "end": [271, 191, 1, 1],
                 "duration": 500
             }
         },
         "post_wait_freezes": 200,
-        "next": [
-            "通用_寻找指定章节卡带"
-        ]
+        "next": ["通用_寻找指定章节卡带"],
+        "timeout": 5000,
+        "interrupt": ["通用_游戏卡带界面右滑"], // 左滑多次找不到，尝试右滑
+        "on_error": "通用_任务失败_返回主页" // 滑动失败，返回主页
     },
     "通用_游戏卡带界面右滑": {
         "doc": "卡带界面右滑",
@@ -147,64 +88,38 @@
         "action": {
             "type": "Swipe",
             "param": {
-                "begin": [
-                    1111,
-                    191,
-                    1,
-                    1
-                ],
-                "end": [
-                    918,
-                    191,
-                    1,
-                    1
-                ],
+                "begin": [1111, 191, 1, 1],
+                "end": [918, 191, 1, 1],
                 "duration": 500
             }
         },
         "post_wait_freezes": 200,
-        "next": [
-            "通用_寻找指定章节卡带"
-        ]
+        "next": ["通用_寻找指定章节卡带"],
+        "timeout": 5000,
+        "on_error": "通用_任务失败_返回主页" // 滑动失败，返回主页
     },
+
     "通用_检测进入地图": {
         "doc": "检测是否成功进入地图界面 (Home键或H OCR)",
         "recognition": {
             "type": "MultiRecognition",
             "param": {
-                "nodes": [
-                    "_通用_检测进入地图_图片识别",
-                    "_通用_检测进入地图_OCR"
-                ],
-                "logic": {
-                    "type": "OR"
-                },
+                "nodes": ["_通用_检测进入地图_图片识别", "_通用_检测进入地图_OCR"],
+                "logic": { "type": "OR" },
                 "return": "$0"
             }
         },
-        "action": {
-            "type": "DoNothing"
-        },
+        "action": { "type": "DoNothing" },
         "post_delay": 3000,
-        "next": [
-            "通用_点击传送阵_或每日派遣"
-        ],
-        "interrupt": [
-            "通用_点击传送阵_或每日派遣",
-            "HomeButton",
-            "BackButton"
-        ] // 增加容错
+        "next": ["通用_点击传送阵_或每日派遣"],
+        "timeout": 15000,
+        "on_error": "通用_任务失败_返回主页" // 无法进入地图，认为流程异常，返回主页
     },
     "_通用_检测进入地图_图片识别": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [
-                    1143,
-                    7,
-                    1247,
-                    68
-                ],
+                "roi": [1143, 7, 1247, 68],
                 "template": "home键.png"
             }
         }
@@ -213,25 +128,18 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    1143,
-                    7,
-                    1247,
-                    68
-                ],
+                "roi": [1143, 7, 1247, 68],
                 "expected": "H"
             }
         }
     },
+    
     "通用_点击传送阵_或每日派遣": {
         "doc": "检测是否有每日派遣入口，优先点击。如果没有则点击传送阵。",
         "recognition": {
             "type": "MultiRecognition",
             "param": {
-                "nodes": [
-                    "_通用_检测每日派遣",
-                    "_通用_检测传送阵按键"
-                ],
+                "nodes": ["_通用_检测每日派遣", "_通用_检测传送阵按键"],
                 "logic": {
                     "type": "CUSTOM",
                     "expression": "$0 OR $1"
@@ -239,17 +147,10 @@
                 "return": "$0 OR $1"
             }
         },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "通用_前往指定地图名称"
-        ],
-        "interrupt": [
-            "通用_前往指定地图名称",
-            "HomeButton",
-            "BackButton"
-        ] // 增加容错
+        "action": { "type": "Click" },
+        "next": ["通用_前往指定地图名称"],
+        "timeout": 10000,
+        "on_error": "通用_点击传送阵_或每日派遣" // 点击失败就重试
     },
     "_通用_检测每日派遣": {
         "recognition": {
@@ -257,15 +158,8 @@
             "param": {
                 "template": "每日派遣图标.png",
                 "green_mask": true,
-                "threshold": [
-                    0.4
-                ],
-                "roi": [
-                    873,
-                    525,
-                    122,
-                    126
-                ]
+                "threshold": [0.4],
+                "roi": [873, 525, 122, 126]
             }
         },
         "post_wait_freezes": 7000
@@ -274,270 +168,188 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [
-                    922,
-                    562,
-                    60,
-                    60
-                ],
+                "roi": [922, 562, 60, 60],
                 "template": "传送阵按键.png"
             }
         }
     },
+    
     "通用_前往指定地图名称": {
         "doc": "在地图选择界面寻找并移动到指定名称的地图 (由CustomAction动态传入expected)",
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    516,
-                    639,
-                    276,
-                    33
-                ],
-                "expected": [
-                    "PLACEHOLDER_MAP_NAME"
-                ] // <- 占位符
+                "roi": [516, 639, 276, 33],
+                "expected": ["PLACEHOLDER_MAP_NAME"]
             }
         },
-        "action": {
-            "type": "DoNothing"
-        },
-        "next": [
-            "通用_移动到目标地图点"
-        ],
-        "interrupt": [
-            "通用_地图选择界面_向左滑",
-            "通用_地图选择界面_向右滑",
-            "通用_点击传送阵_或每日派遣", // 滑动多次未找到，尝试重新点击传送阵/派遣
-            "HomeButton",
-            "BackButton" // 增加容错
-        ]
+        "action": { "type": "DoNothing" },
+        "next": ["通用_移动到目标地图点"],
+        "timeout": 15000,
+        "interrupt": ["通用_地图选择界面_向左滑"], // 找不到地图，尝试左滑
+        "on_error": "通用_任务失败_返回主页" // 找不到且滑动失败，返回主页
     },
     "通用_地图选择界面_向左滑": {
         "doc": "地图选择界面左滑",
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    230,
-                    323,
-                    48,
-                    48
-                ],
-                "template": "检测地图_左移键.png",
-                "threshold": 0.45,
-                "green_mask": true
-            }
-        },
+        "recognition": "DirectHit",
         "action": {
-            "type": "Click",
+            "type": "Swipe",
             "param": {
-                "target": [
-                    251,
-                    345,
-                    1,
-                    1
-                ]
+                "begin": [251, 345, 1, 1],
+                "end": [918, 191, 1, 1],
+                "duration": 500
             }
         },
-        "next": [
-            "通用_前往指定地图名称"
-        ]
+        "post_wait_freezes": 200,
+        "next": ["通用_前往指定地图名称"],
+        "timeout": 5000,
+        "interrupt": ["通用_地图选择界面_向右滑"], // 左滑多次找不到，尝试右滑
+        "on_error": "通用_任务失败_返回主页" // 滑动失败，返回主页
     },
     "通用_地图选择界面_向右滑": {
         "doc": "地图选择界面右滑",
-        "recognition": {
-            "type": "TemplateMatch",
+        "recognition": "DirectHit",
+        "action": {
+            "type": "Swipe",
             "param": {
-                "roi": [
-                    1001,
-                    321,
-                    55,
-                    55
-                ],
-                "template": "检测地图_右移键.png",
-                "green_mask": true,
-                "threshold": 0.45
+                "begin": [1026, 346, 1, 1],
+                "end": [271, 191, 1, 1],
+                "duration": 500
             }
         },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "通用_前往指定地图名称"
-        ]
+        "post_wait_freezes": 200,
+        "next": ["通用_前往指定地图名称"],
+        "timeout": 5000,
+        "on_error": "通用_任务失败_返回主页" // 滑动失败，返回主页
     },
+
     "通用_移动到目标地图点": {
         "doc": "点击当前选择的地图点进行传送",
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [
-                    406,
-                    137,
-                    468,
-                    405
-                ],
+                "roi": [406, 137, 468, 405],
                 "template": "检测地图_移动魔法阵2.png"
             }
         },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "通用_执行地图操作序列"
-        ],
-        "interrupt": [
-            "HomeButton",
-            "BackButton"
-        ] // 增加容错
+        "action": { "type": "Click" },
+        "next": ["通用_执行地图操作序列"],
+        "timeout": 10000,
+        "on_error": "通用_移动到目标地图点" // 点击失败就重试
     },
+
     "通用_执行地图操作序列": {
         "doc": "这里会通过CustomAction动态编排一系列的探索、吸收、召集操作",
         "recognition": "DirectHit",
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "MapResourceActions"
-            }
-        },
-        "next": [
-            "MapResourceProcessor"
-        ] // 执行完所有操作后，返回MapResourceProcessor进行流程判断
+        "action": { "type": "Custom", "param": { "custom_action": "MapResourceActions" } },
+        "next": ["MapResourceProcessor"],
+        "timeout": 60000,
+        "on_error": "通用_任务失败_返回主页" // CustomAction执行失败，直接返回主页
     },
+
     "通用_切换卡带": {
         "doc": "点击切换卡带按钮 (由CustomAction动态传入下一章节卡带模板)",
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [
-                    539,
-                    636,
-                    130,
-                    66
-                ],
-                "template": [
-                    "地图资源_切换卡带键.png",
-                    "地图资源_切换卡带键_绿幕.png"
-                ],
+                "roi": [539, 636, 130, 66],
+                "template": ["地图资源_切换卡带键.png", "地图资源_切换卡带键_绿幕.png"],
                 "green_mask": true,
                 "threshold": 0.45
             }
         },
-        "action": {
-            "type": "Click"
-        },
+        "action": { "type": "Click" },
         "post_wait_freezes": 200,
-        "next": [
-            "通用_点击下一章卡带"
-        ],
+        "next": ["通用_点击下一章卡带"],
         "timeout": 5000,
-        "on_error": "通用_切换卡带", // 切换失败就重试
-        "interrupt": [
-            "HomeButton",
-            "BackButton"
-        ] // 增加容错
+        "on_error": "通用_切换卡带" // 切换失败就重试
     },
     "通用_点击下一章卡带": {
         "doc": "选择并点击下一章的卡带 (由CustomAction动态传入template)",
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [
-                    41,
-                    601,
-                    1240,
-                    90
-                ],
-                "template": "PLACEHOLDER_NEXT_CHAPTER_CARD.png", // <- 占位符
+                "roi": [41, 601, 1240, 90],
+                "template": "PLACEHOLDER_NEXT_CHAPTER_CARD.png",
                 "threshold": 0.9
             }
         },
-        "action": {
-            "type": "Click"
-        },
+        "action": { "type": "Click" },
         "pre_wait_freezes": 500,
-        "next": [
-            "MapResourceProcessor"
-        ], // 切换成功后，返回MapResourceProcessor进行下一章节的初始化
-        "interrupt": [
-            "HomeButton",
-            "BackButton"
-        ] // 增加容错
+        "next": ["MapResourceProcessor"],
+        "timeout": 5000,
+        "on_error": "通用_点击下一章卡带" // 点击失败就重试
     },
+    
     // --- 简化后的原子操作节点 ---
+    "__Internal_Python_Recognition__": { 
+        "doc": "MapResourceActions 内部用于动态识别按钮的临时节点",
+        "recognition": "DirectHit", 
+        "action": "DoNothing",
+        "timeout": 5000,
+        "on_error": "通用_任务失败_返回主页" // 临时识别失败，返回主页
+    },
     "通用操作_探索": {
         "doc": "执行探索操作",
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [
-                    961,
-                    451,
-                    292,
-                    252
-                ],
-                "template": "地图资源_探索.png" // 使用统一的探索模板
+                "roi": [961, 451, 292, 252],
+                "template": "地图资源_探索.png"
             }
         },
-        "action": {
-            "type": "Click"
-        },
+        "action": { "type": "Click" },
         "post_delay": 3000,
-        "interrupt": [
-            "HomeButton",
-            "BackButton"
-        ] // 增加容错
+        "timeout": 10000,
+        "on_error": "通用操作_探索" // 识别或点击失败就重试
     },
     "通用操作_吸收": {
         "doc": "执行吸收操作",
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [
-                    961,
-                    451,
-                    292,
-                    252
-                ],
-                "template": "地图资源_吸收.png", // 使用统一的吸收模板
-                "green_mask": true, // 假设吸收图标有绿幕特效
-                "threshold": 0.75 // 根据实际情况调整阈值
+                "roi": [961, 451, 292, 252],
+                "template": "地图资源_吸收.png",
+                "green_mask": true, 
+                "threshold": 0.75
             }
         },
-        "action": {
-            "type": "Click"
+        "action": { 
+            "type": "Click",
+            "param": {
+                "target": [0,0,0,0] // 占位符，由Python动态修改
+            }
         },
         "post_delay": 4000,
-        "interrupt": [
-            "HomeButton",
-            "BackButton"
-        ]
+        "timeout": 10000,
+        "on_error": "通用操作_吸收" // 点击失败就重试
     },
     "通用操作_召集": {
         "doc": "执行召集操作",
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [
-                    961,
-                    451,
-                    292,
-                    252
-                ],
-                "template": "地图资源_召集.png", // 使用统一的召集模板
-                "green_mask": true, // 假设召集图标有绿幕特效
-                "threshold": 0.75 // 根据实际情况调整阈值
+                "roi": [961, 451, 292, 252],
+                "template": "地图资源_召集.png",
+                "green_mask": true, 
+                "threshold": 0.75
             }
         },
-        "action": {
-            "type": "Click"
+        "action": { 
+            "type": "Click",
+            "param": {
+                "target": [0,0,0,0] // 占位符，由Python动态修改
+            }
         },
         "post_delay": 3000,
-        "interrupt": [
-            "HomeButton",
-            "BackButton"
-        ]
+        "timeout": 10000,
+        "on_error": "通用操作_召集" // 点击失败就重试
+    },
+
+    "通用_任务失败_返回主页": {
+        "doc": "所有通用流程中的异常处理，最终返回主页。",
+        "recognition": "DirectHit",
+        "action": { "type": "DoNothing" },
+        "next": ["返回主页"]
     }
 }
