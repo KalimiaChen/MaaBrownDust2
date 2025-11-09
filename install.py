@@ -11,7 +11,7 @@ working_dir = Path(__file__).parent
 install_path = working_dir / Path("install")
 version = len(sys.argv) > 1 and sys.argv[1] or "v0.1.3"
 
-def load_json_file(path): s = open(path, 'r', encoding='utf-8').read() try: return json.loads(s) except json.JSONDecodeError as e: # Print precise diagnostics and a snippet around the error to CI logs pos = e.pos line = e.lineno col = e.colno print(f"ERROR: JSON decode error parsing {path}: {e.msg} at line {line} column {col} (pos {pos})", file=sys.stderr) start = max(0, pos - 120) end = min(len(s), pos + 120) # show the snippet with the error location marker snippet = s[start:end] print("------ file snippet (context) ------", file=sys.stderr) print(snippet, file=sys.stderr) # show pointer line under snippet when possible pointer_index = pos - start print(" " * max(0, pointer_index) + "^", file=sys.stderr) raise SystemExit(1)
+
 def install_deps():
     if not (working_dir / "deps" / "bin").exists():
         print("Please download the MaaFramework to \"deps\" first.")
