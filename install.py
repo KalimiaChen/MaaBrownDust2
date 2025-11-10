@@ -76,10 +76,29 @@ def install_agent():
         dirs_exist_ok=True,
     )
 
-if __name__ == "__main__":
-    install_deps()
-    install_resource()
-    install_chores()
-    install_agent()
-
+def install_python_runtime():  
+    """复制 Python 运行时到 install 目录"""  
+    python_runtime_src = working_dir / "python_runtime"  
+    python_runtime_dst = install_path / "python_runtime"  
+      
+    if not python_runtime_src.exists():  
+        print("Warning: python_runtime directory not found, skipping...")  
+        print("警告: 未找到 python_runtime 目录,跳过...")  
+        return  
+      
+    print("Copying python_runtime...")  
+    shutil.copytree(  
+        python_runtime_src,  
+        python_runtime_dst,  
+        dirs_exist_ok=True,  
+    )  
+    print("✓ python_runtime copied successfully")  
+  
+if __name__ == "__main__":  
+    install_deps()  
+    install_resource()  
+    install_chores()  
+    install_agent()  
+    install_python_runtime() 
+      
     print(f"Install to {install_path} successfully.")
