@@ -351,14 +351,17 @@
         ]
     },
     "装备日常_点击戒指": {
-        "recognition": "DirectHit",
-        "action": "Click",
-        "target": [
-            920,
-            68,
-            1,
-            1
+        "recognition": "TemplateMatch",
+        "roi": [
+            688,
+            34,
+            600,
+            100
         ],
+        "template": [
+            "装备日常_项链图标.png"
+        ],
+        "action": "Click",
         "post_wait_freezes": 500,
         "next": [
             "装备日常_查找毒蛇之手"

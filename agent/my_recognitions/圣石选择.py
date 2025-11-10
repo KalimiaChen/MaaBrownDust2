@@ -31,7 +31,7 @@ class MaterialSelectorRecognition(CustomRecognition):
                 best_ocr_result: OCRResult = reco_detail_obj.best_result
                 if hasattr(best_ocr_result, 'text') and best_ocr_result.text is not None:
                     raw_text = str(best_ocr_result.text)
-                    print(f"DEBUG: 成功从 reco_detail_obj.best_result.text 获取原始文本: '{raw_text}'", file=sys.stderr)
+                    #print(f"DEBUG: 成功从 reco_detail_obj.best_result.text 获取原始文本: '{raw_text}'", file=sys.stderr)
                 else:
                     print("DEBUG: reco_detail_obj.best_result.text 为 None 或不存在。", file=sys.stderr)
             else:
@@ -41,7 +41,7 @@ class MaterialSelectorRecognition(CustomRecognition):
                     first_result = reco_detail_obj.all_results[0]
                     if isinstance(first_result, OCRResult) and hasattr(first_result, 'text') and first_result.text is not None:
                         raw_text = str(first_result.text)
-                        print(f"DEBUG: 成功从 reco_detail_obj.all_results[0].text 获取原始文本 (备用): '{raw_text}'", file=sys.stderr)
+                        #print(f"DEBUG: 成功从 reco_detail_obj.all_results[0].text 获取原始文本 (备用): '{raw_text}'", file=sys.stderr)
                     else:
                         print("DEBUG: all_results 中第一个结果不是 OCRResult 或其文本为 None。", file=sys.stderr)
                 else:
@@ -58,11 +58,11 @@ class MaterialSelectorRecognition(CustomRecognition):
                 print(f"DEBUG: 原始文本'{raw_text}'类型为 {type(raw_text)}，不是字符串类型，无法清理。", file=sys.stderr)
                 return self.FAIL_VALUE
 
-            print(f"清理逗号及其他非数字字符后: '{cleaned_text}'", file=sys.stderr)
+            #print(f"清理逗号及其他非数字字符后: '{cleaned_text}'", file=sys.stderr)
 
             if cleaned_text:
                 number = int(cleaned_text)
-                print(f"成功解析出数字: {number}", file=sys.stderr)
+                #print(f"成功解析出数字: {number}", file=sys.stderr)
                 return number
             else:
                 print(f"在清理后的文本'{cleaned_text}'中未找到任何有效数字。", file=sys.stderr)
@@ -80,7 +80,7 @@ class MaterialSelectorRecognition(CustomRecognition):
         try:
             node_to_run = "__Internal_Python_OCR__"
             
-            print(f"DEBUG: 准备调用 context.run_recognition for ROI: {roi}", file=sys.stderr)
+            #print(f"DEBUG: 准备调用 context.run_recognition for ROI: {roi}", file=sys.stderr)
             
             reco_detail_from_run_recognition: Optional[RecognitionDetail] = context.run_recognition(
                 node_to_run,
