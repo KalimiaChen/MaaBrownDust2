@@ -449,3 +449,9 @@ tools/ImageCropper/**/*.png
 
 config
 debug
+
+# 在 .gitignore 文件末尾添加  
+# Allow python_runtime files  
+!python_runtime/**/*.exe  
+!python_runtime/**/*.dll  
+!python_runtime/**/*.pyd
