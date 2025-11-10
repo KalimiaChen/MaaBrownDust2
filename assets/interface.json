@@ -18,7 +18,7 @@
     }
   ],
   "agent": {
-    "child_exec": "{PROJECT_DIR}/python_runtime",
+    "child_exec": "{PROJECT_DIR}/python_runtime/python.exe",
     "child_args": [
       "{PROJECT_DIR}/agent/main.py"
     ]
