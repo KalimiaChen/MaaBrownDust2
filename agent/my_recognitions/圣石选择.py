@@ -129,7 +129,7 @@ class MaterialSelectorRecognition(CustomRecognition):
                 if isinstance(argv.custom_recognition_param, str):
                     import json
                     processed_params = json.loads(argv.custom_recognition_param)
-                    print(f"DEBUG: 成功将 custom_recognition_param 字符串解析为字典: {processed_params}", file=sys.stderr)
+                    #print(f"DEBUG: 成功将 custom_recognition_param 字符串解析为字典: {processed_params}", file=sys.stderr)
                 # 如果它已经是字典，直接使用
                 elif isinstance(argv.custom_recognition_param, dict):
                     processed_params = argv.custom_recognition_param
@@ -167,7 +167,7 @@ class MaterialSelectorRecognition(CustomRecognition):
                     print(f"警告：用户指定材料 '{selected_material_type}' 未在定义中找到。将回退到自动选择最少。", file=sys.stderr)
             
             if chosen_material is None: 
-                print("DEBUG: 未指定材料或指定为'min'，开始识别所有材料数量。", file=sys.stderr)
+                #print("DEBUG: 未指定材料或指定为'min'，开始识别所有材料数量。", file=sys.stderr)
                 material_counts = []
                 for mat in material_definitions:
                     count = self._detect_material_count(context, argv.image, mat["roi"])
