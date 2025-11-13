@@ -73,6 +73,8 @@ x86/
 [Aa][Rr][Mm]64/
 bld/
 [Bb]in/
+!python_runtime/**/bin/  
+!python_runtime/**/bin/**
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
