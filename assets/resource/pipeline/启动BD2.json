@@ -2,51 +2,70 @@
     "启动BD2": {
         "timeout": 60000,
         "recognition": "DirectHit",
-        "next": "检测主页",
-        "interrupt": [
-            "BDX",
-            "触摸启动",
-            "启动游戏中",
-            "触摸启动英文",
-            "下载检测",
-            "返回主页",
-            "返回主页图片",
-            "卡带返回主页",
-            "pvp段位变化",
-            "随机点击"
+        "next": [
+            "检测主页",
+            "[JumpBack]下载检测",
+            "[JumpBack]返回主页",
+            "[JumpBack]返回主页图片",
+            "[JumpBack]卡带返回主页",
+            "[JumpBack]pvp段位变化",
+            "[JumpBack]BDX临时",
+            "[JumpBack]BDX",
+            "[JumpBack]触摸启动",
+            "[JumpBack]启动游戏中",
+            "[JumpBack]触摸启动英文",
+            "[JumpBack]随机点击"
+        ]
+    },
+    "BDX临时": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            618,
+            421,
+            1,
+            1
+        ],
+        "next": [
+            "[JumpBack]触摸启动",
+            "启动BD2"
         ]
     },
     "BDX": {
         "recognition": "OCR",
         "roi": [
-            530,
-            275,
-            216,
-            165
+            608,
+            411,
+            70,
+            30
         ],
         "expected": [
             "confirm",
-            "CONFIRM"
+            "CONFIRM",
+            "con",
+            "CON"
         ],
         "action": "Click",
         "next": [
-            "启动BD2"
-        ],
-        "interrupt": [
-            "触摸启动"
+            "启动BD2",
+            "[JumpBack]触摸启动"
         ]
     },
     "触摸启动": {
         "recognition": "TemplateMatch",
         "template": "touch_to_start.png",
         "action": "Click",
-        "next": "启动BD2"
+        "next": [
+            "启动BD2"
+        ]
     },
     "触摸启动英文": {
         "recognition": "OCR",
         "expected": "TOUCH TO START",
         "action": "Click",
-        "next": "启动BD2"
+        "next": [
+            "启动BD2"
+        ]
     },
     "下载检测": {
         "recognition": "OCR",
@@ -61,7 +80,9 @@
             "下載"
         ],
         "action": "Click",
-        "next": "启动BD2"
+        "next": [
+            "启动BD2"
+        ]
     },
     "启动游戏中": {
         "recognition": "OCR",
@@ -70,7 +91,9 @@
             "啟動遊戲中"
         ],
         "action": "DoNothing",
-        "next": "启动BD2"
+        "next": [
+            "启动BD2"
+        ]
     },
     "检测主页": {
         "recognition": "OCR",
@@ -85,11 +108,11 @@
             "抽抽樂"
         ],
         "action": "DoNothing",
-        "next": "任务完成",
-        "interrupt": [
-            "返回主页",
-            "卡带返回主页",
-            "返回主页图片"
+        "next": [
+            "任务完成",
+            "[JumpBack]返回主页",
+            "[JumpBack]卡带返回主页",
+            "[JumpBack]返回主页图片"
         ]
     },
     "返回主页": {
@@ -102,10 +125,10 @@
         ],
         "expected": "H",
         "action": "Click",
-        "next": "检测主页",
-        "interrupt": [
-            "返回主页",
-            "返回主页图片"
+        "next": [
+            "检测主页",
+            "[JumpBack]返回主页",
+            "[JumpBack]返回主页图片"
         ]
     },
     "返回主页图片": {
@@ -118,10 +141,10 @@
         ],
         "template": "home键.png",
         "action": "Click",
-        "next": "检测主页",
-        "interrupt": [
-            "返回主页图片",
-            "返回主页"
+        "next": [
+            "检测主页",
+            "[JumpBack]返回主页图片",
+            "[JumpBack]返回主页"
         ]
     },
     "卡带返回主页": {
@@ -134,7 +157,9 @@
         ],
         "template": "卡带界面返回键.png",
         "action": "Click",
-        "next": "检测主页"
+        "next": [
+            "检测主页"
+        ]
     },
     "pvp段位变化": {
         "recognition": "OCR",
@@ -149,7 +174,9 @@
             "確認"
         ],
         "action": "Click",
-        "next": "启动BD2"
+        "next": [
+            "启动BD2"
+        ]
     },
     "随机点击": {
         "doc": "修改了target,之前在中下间会在末日之书被乱点",

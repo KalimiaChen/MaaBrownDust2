@@ -1,0 +1,204 @@
+{
+    "我的小屋_检测主页": {
+        "recognition": "OCR",
+        "roi": [
+            77,
+            114,
+            70,
+            30
+        ],
+        "expected": [
+            "我的小屋"
+        ],
+        "action": "Click",
+        "next": "我的小屋_检测界面",
+        "on_error": [
+            "我的小屋_检测主页"
+        ]
+    },
+    "我的小屋_检测界面": {
+        "recognition": "OCR",
+        "roi": [
+            181,
+            18,
+            101,
+            40
+        ],
+        "expected": [
+            "我的小屋"
+        ],
+        "action": "Click",
+        "target": [
+            115,
+            165,
+            1,
+            1
+        ],
+        "next": [
+            "我的小屋_检测观看界面"
+        ],
+        "interrupt": [
+            "我的小屋_检测主页"
+        ],
+        "timeout": 5000,
+        "on_error": [
+            "我的小屋_检测界面"
+        ]
+    },
+    "我的小屋_检测观看界面": {
+        "recognition": "OCR",
+        "roi": [
+            159,
+            133,
+            50,
+            30
+        ],
+        "expected": [
+            "隨機",
+            "随机"
+        ],
+        "action": "Click",
+        "next": [
+            "我的小屋_1点赞"
+        ],
+        "interrupt": [
+            "我的小屋_检测界面"
+        ],
+        "on_error": [
+            "我的小屋_检测观看界面"
+        ]
+    },
+    "我的小屋_1点赞切换": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            439,
+            643,
+            80,
+            60
+        ],
+        "template": [
+            "我的小屋_点赞切换.png"
+        ],
+        "action": "Click",
+        "next": [
+            "我的小屋_1点赞"
+        ],
+        "on_error": [
+            "我的小屋_1点赞切换"
+        ]
+    },
+    "我的小屋_1点赞": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1146,
+            59,
+            60,
+            50
+        ],
+        "template": [
+            "我的小屋_点赞.png"
+        ],
+        "action": "Click",
+        "next": [
+            "我的小屋_2点赞切换"
+        ],
+        "on_error": [
+            "我的小屋_1点赞"
+        ]
+    },
+    "我的小屋_2点赞切换": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            439,
+            643,
+            80,
+            60
+        ],
+        "template": [
+            "我的小屋_点赞切换.png"
+        ],
+        "action": "Click",
+        "next": [
+            "我的小屋_2点赞"
+        ],
+        "on_error": [
+            "我的小屋_2点赞切换"
+        ]
+    },
+    "我的小屋_2点赞": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1146,
+            59,
+            60,
+            50
+        ],
+        "template": [
+            "我的小屋_点赞.png"
+        ],
+        "action": "Click",
+        "next": [
+            "我的小屋_3点赞切换"
+        ],
+        "on_error": [
+            "我的小屋_2点赞"
+        ]
+    },
+    "我的小屋_3点赞切换": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            439,
+            643,
+            80,
+            60
+        ],
+        "template": [
+            "我的小屋_点赞切换.png"
+        ],
+        "action": "Click",
+        "next": [
+            "我的小屋_3点赞"
+        ],
+        "on_error": [
+            "我的小屋_3点赞切换"
+        ]
+    },
+    "我的小屋_3点赞": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1146,
+            59,
+            60,
+            50
+        ],
+        "template": [
+            "我的小屋_点赞.png"
+        ],
+        "action": "Click",
+        "next": [
+            "我的小屋_返回"
+        ],
+        "on_error": [
+            "我的小屋_3点赞"
+        ]
+    },
+    "我的小屋_返回": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "任务_返回键.png"
+        ],
+        "roi": [
+            101,
+            17,
+            40,
+            40
+        ],
+        "action": "Click",
+        "next": [
+            "检测主页"
+        ],
+        "on_error": [
+            "我的小屋_返回"
+        ]
+    }
+}

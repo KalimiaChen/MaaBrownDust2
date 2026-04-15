@@ -35,8 +35,10 @@
         ],
         "template": "快速狩猎_返回键.png",
         "action": "DoNothing",
-        "next": "快速狩猎_材料选择",
-        "interrupt": "快速狩猎_检测主页"
+        "next": [
+            "快速狩猎_材料选择",
+            "[JumpBack]快速狩猎_检测主页"
+        ]
     },
     "快速狩猎_材料选择": {
         "recognition": "OCR",
@@ -44,7 +46,7 @@
             "9."
         ],
         "action": "Click",
-        "next": "快速狩猎_材料确认"
+        "next": ["快速狩猎_材料确认"]
     },
     "快速狩猎_材料确认": {
         "recognition": "OCR",
@@ -61,9 +63,9 @@
         "action": "Click",
         "post_wait_freezes": 200,
         "next": [
-            "快速狩猎_免费白饭确认"
-        ],
-        "interrupt": "快速狩猎_材料选择"
+            "快速狩猎_免费白饭确认",
+            "[JumpBack]快速狩猎_材料选择"
+        ]
     },
     "快速狩猎_免费白饭确认": {
         "recognition": "TemplateMatch",
@@ -80,9 +82,9 @@
             0.95
         ],
         "action": "DoNothing",
-        "next": "快速狩猎_材料_狩猎开始",
-        "interrupt": [
-            "选中仅使用免费白饭"
+        "next": [
+            "快速狩猎_材料_狩猎开始",
+            "[JumpBack]选中仅使用免费白饭"
         ]
     },
     "选中仅使用免费白饭": {
@@ -94,7 +96,7 @@
             1,
             1
         ],
-        "next": "快速狩猎_免费白饭确认"
+        "next": ["快速狩猎_免费白饭确认"]
     },
     "快速狩猎_材料_狩猎开始": {
         "recognition": "OCR",
@@ -109,9 +111,11 @@
             "狩獵"
         ],
         "action": "Click",
-        "next": "快速狩猎_材料_奖励确认",
-        "post_wait_freezes": 500,
-        "interrupt": "快速狩猎_哥布林金币"
+        "next": [
+            "快速狩猎_材料_奖励确认",
+            "[JumpBack]快速狩猎_哥布林金币"
+        ],
+        "post_wait_freezes": 500
     },
     "快速狩猎_材料_奖励确认": {
         "recognition": "OCR",
@@ -131,7 +135,7 @@
             1
         ],
         "post_wait_freezes": 500,
-        "next": "快速狩猎_哥布林金币"
+        "next": ["快速狩猎_哥布林金币"]
     },
     "快速狩猎_哥布林金币": {
         "recognition": "TemplateMatch",
@@ -151,7 +155,7 @@
         "action": "Click",
         "pre_delay": 500,
         "post_wait_freezes": 200,
-        "next": "快速狩猎_哥布林金币_材料确认"
+        "next": ["快速狩猎_哥布林金币_材料确认"]
     },
     "快速狩猎_哥布林金币_材料确认": {
         "recognition": "OCR",
@@ -168,9 +172,9 @@
         "action": "Click",
         "post_wait_freezes": 200,
         "next": [
-            "快速狩猎_哥布林金币_材料拉满"
-        ],
-        "interrupt": "快速狩猎_哥布林金币"
+            "快速狩猎_哥布林金币_材料拉满",
+            "[JumpBack]快速狩猎_哥布林金币"
+        ]
     },
     "快速狩猎_哥布林金币_材料拉满": {
         "recognition": "OCR",
@@ -184,7 +188,7 @@
             "MAX"
         ],
         "action": "Click",
-        "next": "快速狩猎_哥布林金币_狩猎开始"
+        "next": ["快速狩猎_哥布林金币_狩猎开始"]
     },
     "快速狩猎_哥布林金币_狩猎开始": {
         "recognition": "OCR",
@@ -200,8 +204,10 @@
         ],
         "action": "Click",
         "post_wait_freezes": 500,
-        "next": "快速狩猎_哥布林金币_奖励确认",
-        "interrupt": "快速狩猎_圣石洞穴"
+        "next": [
+            "快速狩猎_哥布林金币_奖励确认",
+            "[JumpBack]快速狩猎_圣石洞穴"
+        ]
     },
     "快速狩猎_哥布林金币_奖励确认": {
         "recognition": "OCR",
@@ -221,7 +227,7 @@
             1
         ],
         "post_wait_freezes": 500,
-        "next": "快速狩猎_圣石洞穴"
+        "next": ["快速狩猎_圣石洞穴"]
     },
     "快速狩猎_史莱姆经验": {},
     "快速狩猎_圣石洞穴": {
@@ -242,7 +248,7 @@
         "action": "Click",
         "pre_delay": 500,
         "post_wait_freezes": 200,
-        "next": "快速狩猎_圣石洞穴_材料选择"
+        "next": ["快速狩猎_圣石洞穴_材料选择"]
     },
     "快速狩猎_圣石洞穴_材料选择": {
         "recognition": "Custom",
@@ -264,7 +270,7 @@
         ],
         "action": "Click",
         "post_wait_freezes": 200,
-        "next": "快速狩猎_圣石洞穴_材料确认"
+        "next": ["快速狩猎_圣石洞穴_材料确认"]
     },
     "快速狩猎_圣石洞穴_水材料选择": {
         "recognition": "OCR",
@@ -280,7 +286,7 @@
         ],
         "action": "Click",
         "post_wait_freezes": 200,
-        "next": "快速狩猎_圣石洞穴_材料确认"
+        "next": ["快速狩猎_圣石洞穴_材料确认"]
     },
     "快速狩猎_圣石洞穴_风材料选择": {
         "recognition": "OCR",
@@ -296,7 +302,7 @@
         ],
         "action": "Click",
         "post_wait_freezes": 200,
-        "next": "快速狩猎_圣石洞穴_材料确认"
+        "next": ["快速狩猎_圣石洞穴_材料确认"]
     },
     "快速狩猎_圣石洞穴_光材料选择": {
         "recognition": "OCR",
@@ -312,7 +318,7 @@
         ],
         "action": "Click",
         "post_wait_freezes": 200,
-        "next": "快速狩猎_圣石洞穴_材料确认"
+        "next": ["快速狩猎_圣石洞穴_材料确认"]
     },
     "快速狩猎_圣石洞穴_暗材料选择": {
         "recognition": "OCR",
@@ -328,7 +334,7 @@
         ],
         "action": "Click",
         "post_wait_freezes": 200,
-        "next": "快速狩猎_圣石洞穴_材料确认"
+        "next": ["快速狩猎_圣石洞穴_材料确认"]
     },
     "快速狩猎_圣石洞穴_材料确认": {
         "recognition": "OCR",
@@ -345,9 +351,9 @@
         "action": "Click",
         "post_wait_freezes": 200,
         "next": [
-            "快速狩猎_免费火炬确认"
-        ],
-        "interrupt": "快速狩猎_圣石洞穴"
+            "快速狩猎_免费火炬确认",
+            "[JumpBack]快速狩猎_圣石洞穴"
+        ]
     },
     "快速狩猎_免费火炬确认": {
         "recognition": "TemplateMatch",
@@ -364,9 +370,9 @@
             0.95
         ],
         "action": "DoNothing",
-        "next": "快速狩猎_圣石_拉满",
-        "interrupt": [
-            "选中仅使用免费火炬"
+        "next": [
+            "快速狩猎_圣石_拉满",
+            "[JumpBack]选中仅使用免费火炬"
         ]
     },
     "选中仅使用免费火炬": {
@@ -378,7 +384,7 @@
             1,
             1
         ],
-        "next": "快速狩猎_免费火炬确认"
+        "next": ["快速狩猎_免费火炬确认"]
     },
     "快速狩猎_圣石_拉满": {
         "recognition": "OCR",
@@ -392,7 +398,7 @@
             "MAX"
         ],
         "action": "Click",
-        "next": "快速狩猎_狩猎开始_圣石"
+        "next": ["快速狩猎_狩猎开始_圣石"]
     },
     "快速狩猎_狩猎开始_圣石": {
         "recognition": "OCR",
@@ -408,9 +414,9 @@
         ],
         "action": "Click",
         "post_wait_freezes": 500,
-        "next": "快速狩猎_圣石洞穴_奖励确认",
-        "interrupt": [
-            "快速狩猎_狩猎开始_圣石"
+        "next": [
+            "快速狩猎_圣石洞穴_奖励确认",
+            "[JumpBack]快速狩猎_狩猎开始_圣石"
         ],
         "timeout": 10000,
         "on_error": [
@@ -435,7 +441,7 @@
             1
         ],
         "post_wait_freezes": 500,
-        "next": "快速狩猎_返回主界面"
+        "next": ["快速狩猎_返回主界面"]
     },
     "快速狩猎_返回主界面": {
         "recognition": "TemplateMatch",
@@ -448,6 +454,6 @@
         "template": "快速狩猎_返回键.png",
         "action": "Click",
         "pre_delay": 500,
-        "next": "检测主页"
+        "next": ["检测主页"]
     }
 }

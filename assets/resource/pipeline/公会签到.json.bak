@@ -1,0 +1,82 @@
+{
+    "公会签到_检测主页": {
+        "recognition": "OCR",
+        "roi": [
+            61,
+            622,
+            75,
+            75
+        ],
+        "expected": [
+            "抽抽乐",
+            "抽抽樂"
+        ],
+        "action": "Click",
+        "target": [
+            240,
+            100,
+            1,
+            1
+        ],
+        "next": "公会签到_检测公会"
+    },
+    "公会签到_检测公会": {
+        "timeout": 10000,
+        "recognition": "OCR",
+        "roi": [
+            157,
+            12,
+            98,
+            43
+        ],
+        "expected": [
+            "公会",
+            "公會"
+        ],
+        "action": "DoNothing",
+        "post_delay": 500,
+        "next": "公会签到_退出公会界面"
+    },
+    "公会签到_退出公会界面": {
+        "timeout": 10000,
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            68,
+            36,
+            1,
+            1
+        ],
+        "next": "检测主页",
+        "interrupt": "公会签到重新点击测试"
+    },
+    "公会签到重新点击测试": {
+        "timeout": 10000,
+        "recognition": "OCR",
+        "roi": [
+            157,
+            12,
+            98,
+            43
+        ],
+        "expected": [
+            "公会",
+            "公會"
+        ],
+        "action": "Click",
+        "target": [
+            68,
+            36,
+            1,
+            1
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "检测主页"
+        ],
+        "interrupt": [
+            "返回主页",
+            "返回主页图片"
+        ]
+    }
+}

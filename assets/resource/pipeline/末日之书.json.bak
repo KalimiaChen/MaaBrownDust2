@@ -1,0 +1,208 @@
+{
+    "末日之书_检测主页": {
+        "recognition": "OCR",
+        "roi": [
+            61,
+            622,
+            75,
+            75
+        ],
+        "expected": [
+            "抽抽乐",
+            "抽抽樂"
+        ],
+        "action": "Click",
+        "target": [
+            1143,
+            655,
+            1,
+            1
+        ],
+        "next": "末日之书_检测卡带界面",
+        "post_wait_freezes": 300,
+        "interrupt": [
+            "末日之书_检测主页"
+        ]
+    },
+    "末日之书_检测卡带界面": {
+        "recognition": "OCR",
+        "roi": [
+            79,
+            7,
+            247,
+            50
+        ],
+        "expected": [
+            "游戏卡带收藏集",
+            "遊戲卡帶收藏集",
+            "遊戲卡带收藏集"
+        ],
+        "action": "DoNothing",
+        "next": "末日之书_进入游戏卡带",
+        "pre_wait_freezes": 200,
+        "interrupt": [
+            "末日之书_检测卡带界面"
+        ]
+    },
+    "末日之书_进入游戏卡带": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "卡带图片_末日之书.png"
+        ],
+        "action": "Click",
+        "next": [
+            "末日之书_检测地图页面OCR",
+            "末日之书_检测地图页面图像识别"
+        ],
+        "post_wait_freezes": 1000,
+        "interrupt": [
+            "末日之书_检测卡带界面",
+            "末日之书_进入游戏卡带"
+        ]
+    },
+    "末日之书_检测地图页面OCR": {
+        "recognition": "OCR",
+        "roi": [
+            1143,
+            7,
+            1247,
+            68
+        ],
+        "expected": "H",
+        "action": "DoNothing",
+        "next": "末日之书_移动到战斗",
+        "interrupt": [
+            "末日之书_检测战斗页面"
+        ]
+    },
+    "末日之书_检测地图页面图像识别": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1143,
+            7,
+            1247,
+            68
+        ],
+        "template": "home键.png",
+        "action": "DoNothing",
+        "next": "末日之书_移动到战斗",
+        "interrupt": [
+            "末日之书_检测战斗页面"
+        ]
+    },
+    "末日之书_检测战斗页面": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            150,
+            16,
+            50,
+            50
+        ],
+        "template": [
+            "末日之书_图标.png"
+        ],
+        "action": "DoNothing",
+        "next": [
+            "末日之书_去战斗"
+        ]
+    },
+    "末日之书_移动到战斗": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            992,
+            204,
+            1,
+            1
+        ],
+        "post_delay": 5500,
+        "next": [
+            "末日之书_检测战斗页面"
+        ],
+        "interrupt": [
+            "末日之书_检测地图页面OCR",
+            "末日之书_检测地图页面图像识别"
+        ]
+    },
+    "末日之书_去战斗": {
+        "recognition": "OCR",
+        "roi": [
+            1037,
+            636,
+            100,
+            50
+        ],
+        "expected": [
+            "去战斗",
+            "去戰鬥"
+        ],
+        "action": "Click",
+        "pre_wait_freezes": 200,
+        "next": [
+            "末日之书_战斗跳过"
+        ],
+        "interrupt": [
+            "末日之书_去战斗"
+        ]
+    },
+    "末日之书_战斗跳过": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1027,
+            11,
+            100,
+            50
+        ],
+        "template": [
+            "末日之书_战斗跳过图标.png"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": [
+            "末日之书_离开战斗"
+        ],
+        "interrupt": [
+            "末日之书_战斗跳过"
+        ]
+    },
+    "末日之书_离开战斗": {
+        "recognition": "OCR",
+        "roi": [
+            1122,
+            667,
+            100,
+            50
+        ],
+        "expected": [
+            "离开",
+            "離開"
+        ],
+        "action": "Click",
+        "pre_wait_freezes": 500,
+        "next": [
+            "返回主页",
+            "返回主页图片",
+            "末日之书_随机点击"
+        ],
+        "interrupt": [
+            "末日之书_离开战斗"
+        ]
+    },
+    "末日之书_随机点击": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            105,
+            33,
+            1,
+            1
+        ],
+        "next": [
+            "返回主页",
+            "返回主页图片"
+        ],
+        "interrupt": [
+            "末日之书_随机点击"
+        ]
+    }
+}

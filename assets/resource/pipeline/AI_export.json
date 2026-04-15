@@ -1,19 +1,30 @@
 {
-    "找到AE按钮":{
+    "找到AE按钮": {
         "recognition": "TemplateMatch",
-        "template":["ai_chat.png"],
-        "roi":[
-        1028,20,50,50
+        "template": [
+            "ai_chat.png"
         ],
-        "action":"Click",
-        "next":"找到markdown按钮"
+        "roi": [
+            1028,
+            20,
+            50,
+            50
+        ],
+        "action": "Click",
+        "next": "找到markdown按钮"
     },
-    "找到markdown按钮":{
-        "recognition":"OCR",
-        "roi":[910,90,300,250],
-        "expected":["Markdown"],
-        "action":"Click",
-        "next":"任务完成"
+    "找到markdown按钮": {
+        "recognition": "OCR",
+        "roi": [
+            910,
+            90,
+            300,
+            250
+        ],
+        "expected": [
+            "Markdown"
+        ],
+        "action": "Click",
+        "next": "任务完成"
     }
-
 }

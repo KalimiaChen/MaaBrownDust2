@@ -12,9 +12,9 @@
             "抽抽樂"
         ],
         "action": "Click",
-        "next": "检测抽抽乐界面",
-        "interrupt": [
-            "抽抽乐_检测主页"
+        "next": [
+            "检测抽抽乐界面",
+            "[JumpBack]抽抽乐_检测主页"
         ]
     },
     "检测抽抽乐界面": {
@@ -30,18 +30,16 @@
             "抽抽樂"
         ],
         "action": "DoNothing",
-        "next": "检测免费单抽"
+        "next": ["检测免费单抽"]
     },
     "检测免费单抽": {
         "recognition": "DirectHit",
         "action": "DoNothing",
         "next": [
             "免费单抽ocr",
-            "免费单抽图片识别"
-        ],
-        "interrupt": [
-            "选择免费池",
-            "抽抽乐上滑"
+            "免费单抽图片识别",
+            "[JumpBack]选择免费池",
+            "[JumpBack]抽抽乐上滑"
         ]
     },
     "免费单抽图片识别": {
@@ -95,9 +93,9 @@
         ],
         "action": "Click",
         "post_wait_freezes": 500,
-        "next": "单抽出货",
-        "interrupt": [
-            "单抽跳过"
+        "next": [
+            "单抽出货",
+            "[JumpBack]单抽跳过"
         ],
         "timeout": 10000,
         "on_error": [
@@ -112,7 +110,7 @@
         ],
         "action": "Click",
         "post_delay": 500,
-        "next": "单抽跳过"
+        "next": ["单抽跳过"]
     },
     "单抽跳过": {
         "recognition": "TemplateMatch",
@@ -133,10 +131,10 @@
             1
         ],
         "post_wait_freezes": 500,
-        "next": "单抽返回",
-        "interrupt": [
-            "免费单抽ocr",
-            "免费单抽图片识别"
+        "next": [
+            "单抽返回",
+            "[JumpBack]免费单抽ocr",
+            "[JumpBack]免费单抽图片识别"
         ]
     },
     "单抽返回": {
@@ -159,9 +157,9 @@
             1
         ],
         "pre_delay": 500,
-        "next": "检测抽抽乐界面",
-        "interrupt": [
-            "单抽返回"
+        "next": [
+            "检测抽抽乐界面",
+            "[JumpBack]单抽返回"
         ]
     },
     "选择免费池": {
@@ -188,13 +186,11 @@
         ],
         "next": [
             "检测12PICK更新",
-            "检测免费单抽"
-        ],
-        "interrupt": [
-            "选择免费池",
-            "检测属性服装保证抽抽乐",
-            "检测12PICK",
-            "抽抽乐上滑"
+            "检测免费单抽",
+            "[JumpBack]选择免费池",
+            "[JumpBack]检测属性服装保证抽抽乐",
+            "[JumpBack]检测12PICK",
+            "[JumpBack]抽抽乐上滑"
         ]
     },
     "抽抽乐上滑": {
@@ -222,13 +218,11 @@
         ],
         "post_delay": 300,
         "next": [
-            "选择免费池"
-        ],
-        "interrupt": [
-            "检测属性服装保证抽抽乐",
-            "检测12PICK",
-            "结束每日单抽",
-            "抽抽乐上滑"
+            "选择免费池",
+            "[JumpBack]检测属性服装保证抽抽乐",
+            "[JumpBack]检测12PICK",
+            "[JumpBack]结束每日单抽",
+            "[JumpBack]抽抽乐上滑"
         ]
     },
     "检测属性服装保证抽抽乐": {
@@ -259,7 +253,7 @@
             "12PICK"
         ],
         "action": "DoNothing",
-        "next": "切换装备抽抽乐"
+        "next": ["切换装备抽抽乐"]
     },
     "检测12PICK更新": {
         "recognition": {
@@ -314,6 +308,6 @@
             1,
             1
         ],
-        "next": "检测主页"
+        "next": ["检测主页"]
     }
 }
