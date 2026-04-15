@@ -3,14 +3,76 @@
         "timeout": 10000,
         "recognition": "DirectHit",
         "action": "DoNothing",
-        "post_wait_freezes": 200,
         "next": [
             "日常签到图片",
             "日常签到OCR",
             "关闭公告",
-            "关闭新闻"
+            "关闭新闻",
+            "日常签到检测抽抽乐界面"
+        ],
+        "interrupt": [
+            "日常签到点击抽抽乐"
         ],
         "on_error": [
+            "检测主页"
+        ]
+    },
+    "日常签到点击抽抽乐": {
+        "recognition": "OCR",
+        "roi": [
+            61,
+            622,
+            75,
+            75
+        ],
+        "expected": [
+            "抽抽乐",
+            "抽抽樂"
+        ],
+        "action": "Click",
+        "next": "日常签到检测抽抽乐界面",
+        "interrupt": [
+            "签到检测"
+        ]
+    },
+    "日常签到检测抽抽乐界面": {
+        "recognition": "OCR",
+        "roi": [
+            149,
+            10,
+            150,
+            40
+        ],
+        "expected": [
+            "抽抽乐",
+            "抽抽樂"
+        ],
+        "action": "Click",
+        "next": "日常签到返回主页",
+        "interrupt": [
+            "签到检测",
+            "日常签到点击抽抽乐"
+        ]
+    },
+    "日常签到返回主页": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "template": [
+            "抽卡界面返回键.png"
+        ],
+        "action": "Click",
+        "target": [
+            104,
+            32,
+            1,
+            1
+        ],
+        "next": [
             "检测主页"
         ]
     },
@@ -33,6 +95,7 @@
             1,
             1
         ],
+        "post_delay": 300,
         "next": [
             "签到检测"
         ]
@@ -55,6 +118,7 @@
             1,
             1
         ],
+        "post_delay": 300,
         "next": [
             "签到检测"
         ]
@@ -67,8 +131,8 @@
             "关闭公告3.png"
         ],
         "action": "Click",
-        "post_wait_freezes": 200,
         "next": "签到检测",
+        "post_delay": 300,
         "on_error": [
             "检测主页"
         ]
@@ -92,7 +156,7 @@
             1,
             1
         ],
-        "post_wait_freezes": 300,
+        "post_delay": 300,
         "next": [
             "关闭新闻2"
         ]
@@ -106,7 +170,7 @@
             1,
             1
         ],
-        "post_wait_freezes": 300,
+        "post_delay": 300,
         "next": "签到检测"
     }
 }

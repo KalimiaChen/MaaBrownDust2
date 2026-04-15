@@ -1,5 +1,5 @@
 {
-  "version": "0.1.36",
+  "version": "0.1.38",
   "message": "Welcome to MaaFramework for BrownDust2!",
   "controller": [
     {
@@ -80,8 +80,8 @@
       "entry": "活动日常_检测主页"
     },
     {
-      "name": "玩家小屋",
-      "entry": "启动BD2"
+      "name": "我的小屋",
+      "entry": "我的小屋_检测主页"
     },
     {
       "name": "傲慢之塔",

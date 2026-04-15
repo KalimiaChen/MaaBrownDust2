@@ -4,6 +4,7 @@
         "recognition": "DirectHit",
         "next": "检测主页",
         "interrupt": [
+            "BDX",
             "触摸启动",
             "启动游戏中",
             "触摸启动英文",
@@ -13,6 +14,26 @@
             "卡带返回主页",
             "pvp段位变化",
             "随机点击"
+        ]
+    },
+    "BDX": {
+        "recognition": "OCR",
+        "roi": [
+            530,
+            275,
+            216,
+            165
+        ],
+        "expected": [
+            "confirm",
+            "CONFIRM"
+        ],
+        "action": "Click",
+        "next": [
+            "启动BD2"
+        ],
+        "interrupt": [
+            "触摸启动"
         ]
     },
     "触摸启动": {
