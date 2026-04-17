@@ -16,9 +16,9 @@
         "action": "Click",
         "target_offset": [
             0,
+            -25,
             0,
-            0,
-            -25
+            0
         ],
         "post_wait_freezes": 500,
         "next": [
@@ -46,7 +46,9 @@
             "9."
         ],
         "action": "Click",
-        "next": ["快速狩猎_材料确认"]
+        "next": [
+            "快速狩猎_材料确认"
+        ]
     },
     "快速狩猎_材料确认": {
         "recognition": "OCR",
@@ -96,7 +98,9 @@
             1,
             1
         ],
-        "next": ["快速狩猎_免费白饭确认"]
+        "next": [
+            "快速狩猎_免费白饭确认"
+        ]
     },
     "快速狩猎_材料_狩猎开始": {
         "recognition": "OCR",
@@ -135,7 +139,9 @@
             1
         ],
         "post_wait_freezes": 500,
-        "next": ["快速狩猎_哥布林金币"]
+        "next": [
+            "快速狩猎_哥布林金币"
+        ]
     },
     "快速狩猎_哥布林金币": {
         "recognition": "TemplateMatch",
@@ -155,7 +161,9 @@
         "action": "Click",
         "pre_delay": 500,
         "post_wait_freezes": 200,
-        "next": ["快速狩猎_哥布林金币_材料确认"]
+        "next": [
+            "快速狩猎_哥布林金币_材料确认"
+        ]
     },
     "快速狩猎_哥布林金币_材料确认": {
         "recognition": "OCR",
@@ -188,7 +196,9 @@
             "MAX"
         ],
         "action": "Click",
-        "next": ["快速狩猎_哥布林金币_狩猎开始"]
+        "next": [
+            "快速狩猎_哥布林金币_狩猎开始"
+        ]
     },
     "快速狩猎_哥布林金币_狩猎开始": {
         "recognition": "OCR",
@@ -227,7 +237,9 @@
             1
         ],
         "post_wait_freezes": 500,
-        "next": ["快速狩猎_圣石洞穴"]
+        "next": [
+            "快速狩猎_圣石洞穴"
+        ]
     },
     "快速狩猎_史莱姆经验": {},
     "快速狩猎_圣石洞穴": {
@@ -248,7 +260,9 @@
         "action": "Click",
         "pre_delay": 500,
         "post_wait_freezes": 200,
-        "next": ["快速狩猎_圣石洞穴_材料选择"]
+        "next": [
+            "快速狩猎_圣石洞穴_材料选择"
+        ]
     },
     "快速狩猎_圣石洞穴_材料选择": {
         "recognition": "Custom",
@@ -270,7 +284,9 @@
         ],
         "action": "Click",
         "post_wait_freezes": 200,
-        "next": ["快速狩猎_圣石洞穴_材料确认"]
+        "next": [
+            "快速狩猎_圣石洞穴_材料确认"
+        ]
     },
     "快速狩猎_圣石洞穴_水材料选择": {
         "recognition": "OCR",
@@ -286,7 +302,9 @@
         ],
         "action": "Click",
         "post_wait_freezes": 200,
-        "next": ["快速狩猎_圣石洞穴_材料确认"]
+        "next": [
+            "快速狩猎_圣石洞穴_材料确认"
+        ]
     },
     "快速狩猎_圣石洞穴_风材料选择": {
         "recognition": "OCR",
@@ -302,7 +320,9 @@
         ],
         "action": "Click",
         "post_wait_freezes": 200,
-        "next": ["快速狩猎_圣石洞穴_材料确认"]
+        "next": [
+            "快速狩猎_圣石洞穴_材料确认"
+        ]
     },
     "快速狩猎_圣石洞穴_光材料选择": {
         "recognition": "OCR",
@@ -318,7 +338,9 @@
         ],
         "action": "Click",
         "post_wait_freezes": 200,
-        "next": ["快速狩猎_圣石洞穴_材料确认"]
+        "next": [
+            "快速狩猎_圣石洞穴_材料确认"
+        ]
     },
     "快速狩猎_圣石洞穴_暗材料选择": {
         "recognition": "OCR",
@@ -334,7 +356,9 @@
         ],
         "action": "Click",
         "post_wait_freezes": 200,
-        "next": ["快速狩猎_圣石洞穴_材料确认"]
+        "next": [
+            "快速狩猎_圣石洞穴_材料确认"
+        ]
     },
     "快速狩猎_圣石洞穴_材料确认": {
         "recognition": "OCR",
@@ -384,7 +408,9 @@
             1,
             1
         ],
-        "next": ["快速狩猎_免费火炬确认"]
+        "next": [
+            "快速狩猎_免费火炬确认"
+        ]
     },
     "快速狩猎_圣石_拉满": {
         "recognition": "OCR",
@@ -398,7 +424,9 @@
             "MAX"
         ],
         "action": "Click",
-        "next": ["快速狩猎_狩猎开始_圣石"]
+        "next": [
+            "快速狩猎_狩猎开始_圣石"
+        ]
     },
     "快速狩猎_狩猎开始_圣石": {
         "recognition": "OCR",
@@ -441,7 +469,9 @@
             1
         ],
         "post_wait_freezes": 500,
-        "next": ["快速狩猎_返回主界面"]
+        "next": [
+            "快速狩猎_返回主界面"
+        ]
     },
     "快速狩猎_返回主界面": {
         "recognition": "TemplateMatch",
@@ -454,6 +484,9 @@
         "template": "快速狩猎_返回键.png",
         "action": "Click",
         "pre_delay": 500,
-        "next": ["检测主页"]
+        "next": [
+            "检测主页",
+            "[JumpBack]快速狩猎_返回主界面"
+        ]
     }
 }

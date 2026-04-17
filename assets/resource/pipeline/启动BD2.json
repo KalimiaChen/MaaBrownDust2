@@ -17,6 +17,24 @@
             "[JumpBack]随机点击"
         ]
     },
+    "启动BD2_检测每日派遣": {
+        "recognition": "TemplateMatch",
+        "template": "每日派遣图标.png",
+        "green_mask": true,
+        "roi": [
+            873,
+            525,
+            122,
+            126
+        ],
+        "action": "Click",
+        "post_wait_freezes": 7000,
+        "next": [
+            "返回主页",
+            "返回主页图片",
+            "[JumpBack]启动BD2"
+        ]
+    },
     "BDX临时": {
         "recognition": "DirectHit",
         "action": "Click",
