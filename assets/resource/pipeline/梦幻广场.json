@@ -1,0 +1,141 @@
+{
+    "梦幻广场_检测主页": {
+        "recognition": "OCR",
+        "roi": [
+            61,
+            622,
+            75,
+            75
+        ],
+        "expected": [
+            "抽抽乐",
+            "抽抽樂"
+        ],
+        "action": "Click",
+        "target": [
+            1143,
+            655,
+            1,
+            1
+        ],
+        "next": [
+            "梦幻广场_检测卡带界面",
+            "[JumpBack]梦幻广场_检测主页"
+        ],
+        "post_wait_freezes": 300
+    },
+    "梦幻广场_检测卡带界面": {
+        "recognition": "OCR",
+        "roi": [
+            79,
+            7,
+            247,
+            50
+        ],
+        "expected": [
+            "游戏卡带收藏集",
+            "遊戲卡帶收藏集",
+            "遊戲卡带收藏集"
+        ],
+        "action": "DoNothing",
+        "next": [
+            "梦幻广场_寻找广场卡带",
+            "[JumpBack]梦幻广场_游戏卡带界面左滑"
+        ],
+        "pre_wait_freezes": 200
+    },
+    "梦幻广场_寻找广场卡带": {
+        "recognition": "OCR",
+        "roi": [
+            958,
+            524,
+            322,
+            70
+        ],
+        "expected": [
+            "廣場",
+            "广场"
+        ],
+        "action": "Click",
+        "target_offset": [
+            0,
+            -25,
+            0,
+            0
+        ],
+        "next": [
+            "梦幻广场_检测界面",
+            "[JumpBack]梦幻广场_寻找广场卡带"
+        ]
+    },
+    "梦幻广场_游戏卡带界面左滑": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            369,
+            473,
+            1,
+            1
+        ],
+        "end": [
+            [
+                185,
+                473,
+                1,
+                1
+            ],
+            [
+                184,
+                472,
+                1,
+                1
+            ]
+        ],
+        "duration": 500,
+        "post_wait_freezes": 200,
+        "next": [
+            "梦幻广场_寻找广场卡带",
+            "梦幻广场_检测卡带界面"
+        ]
+    },
+    "梦幻广场_检测界面": {
+        "recognition": "OCR",
+        "expected": [
+            "H"
+        ],
+        "roi": [
+            1143,
+            7,
+            1247,
+            68
+        ],
+        "action": "DoNothing",
+        "next": [
+            "梦幻广场_检测许愿按钮",
+            "[JumpBack]梦幻广场_检测界面"
+        ],
+        "on_error": [
+            "返回主页",
+            "返回主页图片"
+        ]
+    },
+    "梦幻广场_检测许愿按钮": {
+        "recognition": "OCR",
+        "expected": [
+            "F"
+        ],
+        "roi": [
+            928,
+            619,
+            30,
+            30
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]梦幻广场_检测许愿按钮",
+            "检测主页",
+            "返回主页",
+            "返回主页图片"
+        ]
+    }
+}

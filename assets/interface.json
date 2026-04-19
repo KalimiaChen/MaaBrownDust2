@@ -1,7 +1,7 @@
 {
   "interface_version": 2,
   "name": "MaaBrownDust2",
-  "version": "0.1.39",
+  "version": "0.1.40",
   "message": "Welcome to MaaFramework for BrownDust2!",
   "controller": [
     {
@@ -84,6 +84,10 @@
     {
       "name": "我的小屋",
       "entry": "我的小屋_检测主页"
+    },
+    {
+      "name": "梦幻广场",
+      "entry": "梦幻广场_检测主页"
     },
     {
       "name": "傲慢之塔",
