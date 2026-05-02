@@ -18,7 +18,9 @@
             1,
             1
         ],
-        "next": ["镜中之战_检测卡带界面"]
+        "next": [
+            "镜中之战_检测卡带界面"
+        ]
     },
     "镜中之战_检测卡带界面": {
         "recognition": "OCR",
@@ -34,7 +36,9 @@
             "遊戲卡带收藏集"
         ],
         "action": "DoNothing",
-        "next": ["镜中之战_进入游戏卡带"]
+        "next": [
+            "镜中之战_进入游戏卡带"
+        ]
     },
     "镜中之战_进入游戏卡带": {
         "recognition": "TemplateMatch",
@@ -47,6 +51,7 @@
             "镜中之战_检测界面",
             "[JumpBack]镜中之战_进入游戏卡带",
             "[JumpBack]镜中之战_检测到升级",
+            "[JumpBack]镜中之战_检测到段位下降",
             "[JumpBack]镜中之战_赛季结算OCR",
             "[JumpBack]镜中之战_赛季结算图片"
         ]
@@ -59,6 +64,18 @@
             150,
             50
         ],
+        "expected": [
+            "确认",
+            "確認"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": [
+            "镜中之战_检测界面"
+        ]
+    },
+    "镜中之战_检测到段位下降": {
+        "recognition": "OCR",
         "expected": [
             "确认",
             "確認"
@@ -141,7 +158,9 @@
         ],
         "action": "Click",
         "post_wait_freezes": 7000,
-        "next": ["镜中之战_移动至决斗图标"]
+        "next": [
+            "镜中之战_移动至决斗图标"
+        ]
     },
     "镜中之战_移动至决斗图标": {
         "recognition": "DirectHit",
@@ -237,7 +256,9 @@
         ],
         "expected": "倍",
         "action": "Click",
-        "next": ["镜中之战_自动战斗_max消耗选择"]
+        "next": [
+            "镜中之战_自动战斗_max消耗选择"
+        ]
     },
     "镜中之战_自动战斗_max消耗选择": {
         "recognition": "OCR",
@@ -249,7 +270,9 @@
         ],
         "expected": "MAX",
         "action": "Click",
-        "next": ["镜中之战_自动战斗_max消耗选择确定"]
+        "next": [
+            "镜中之战_自动战斗_max消耗选择确定"
+        ]
     },
     "镜中之战_自动战斗_max消耗选择确定": {
         "recognition": "OCR",
@@ -331,7 +354,9 @@
             0.95
         ],
         "action": "DoNothing",
-        "next": ["选择战斗次数"]
+        "next": [
+            "选择战斗次数"
+        ]
     },
     "镜中之战_自动战斗_选中战斗自动跳过": {
         "recognition": "DirectHit",
@@ -396,7 +421,9 @@
             "取消"
         ],
         "action": "Click",
-        "next": ["镜中之战_退出战斗界面"]
+        "next": [
+            "镜中之战_退出战斗界面"
+        ]
     },
     "镜中之战_退出战斗界面": {
         "recognition": "TemplateMatch",

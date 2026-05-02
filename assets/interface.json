@@ -1,7 +1,7 @@
 {
   "interface_version": 2,
   "name": "MaaBrownDust2",
-  "version": "0.1.40",
+  "version": "0.1.41",
   "message": "Welcome to MaaFramework for BrownDust2!",
   "controller": [
     {

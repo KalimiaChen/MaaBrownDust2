@@ -131,6 +131,12 @@
             30
         ],
         "action": "Click",
+        "target_offset": [
+            0,
+            -15,
+            0,
+            0
+        ],
         "next": [
             "[JumpBack]梦幻广场_检测许愿按钮",
             "检测主页",
